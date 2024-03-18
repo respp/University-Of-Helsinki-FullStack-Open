@@ -3,7 +3,6 @@ import React from 'react'
 
 export const DisplayAnecdotes = ({anecdotes, selected}) => {
 
-
     if (selected < 0){
         return(
             <div></div>
