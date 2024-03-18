@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { DisplayAnecdotes } from './DisplayAnecdotes'
+import { DisplayWinner } from './DisplayWinner'
+import { DisplayAllAnecdotes } from './DisplayAllAnecdotes' // Por si quiero mostrar jugadores
 
 const App = () => {
   const anecdotes = [
@@ -25,21 +27,45 @@ const App = () => {
 
   const [selected, setSelected] = useState(-1)
 
-
-
   const handleRandom =()=>{
       setSelected(Math.floor(Math.random() * 7))
   }
 
   const handleVote = ()=>{
-    anecdotes[selected]
+    let el
+    const index = anecdotes.findIndex(el => el === anecdotes[selected])
+    el = index
+    const copy = {...votes}
+    copy[el] += 1 
+    setVotes(copy)
   }
 
+  const findAnecdoteWinner = () => {
+    let maxValue = 0;
+    let anecdoteWithMostVotes = '';
+    
+    for (let id in votes) {
+      if (votes[id] > maxValue) {
+        maxValue = votes[id];
+        console.log(maxValue)
+        anecdoteWithMostVotes = anecdotes[id];
+      }
+    }
+
+    return {winner: anecdoteWithMostVotes, votesForWinner: maxValue};
+  }
+
+  const {winner, votesForWinner} = findAnecdoteWinner();
+  
+    
   return (
     <>
     <DisplayAnecdotes anecdotes={anecdotes} selected={selected}/>
     <button onClick={handleRandom}>next anecdote</button>
-    {/* <button onClick={}>vote</button> */}
+    <button onClick={handleVote}>vote</button> 
+    {/* <DisplayAllAnecdotes anecdotes={anecdotes} /> Si quiero mostrar ganadores */}
+    <DisplayWinner winnerId={winner} votesForWinner={votesForWinner}/>
+
     </>
   )
 }
