@@ -1,20 +1,23 @@
-import React from 'react'
+import React from 'react';
+import { Parts } from './Parts';
+import { Name } from './Name';
+import { Total } from './Total';
 
-export const Course = ({course}) => {
-  const exercises = course.parts.map(x => x.exercises)
 
-    return (
-        <div>
-          <header><h1>{course.name}</h1></header>
-            {course.parts.map(part => 
-    
-              <p key={part.id}>
-                {part.name} {part.exercises}
-              </p>
-            )}
+export const Course = ({ course }) => {
 
-            <h4>total of {
-                exercises.reduce((acc,el)=> acc+el, 0)} exercises</h4> 
-        </div>
-      )
-}
+  return (
+    <div>
+      <header><h1>Web development curriculum</h1></header>
+      {
+        course.map(course =>
+          <div key={course.id}>
+            <Name name={course.name}/>
+            <Parts parts={course.parts}/>
+            <Total parts={course.parts}/>
+          </div>
+        )
+      }
+    </div>
+  );
+};

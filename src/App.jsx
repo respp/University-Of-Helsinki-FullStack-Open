@@ -43,10 +43,33 @@ const App = () => {
             id: 2
           }
         ]
+      },
+      {
+        name: 'Html + CSS',
+        id: 3,
+        parts: [
+          {
+            name: 'Elements',
+            exercises: 6,
+            id: 1
+          },
+          {
+            name: 'Atributes',
+            exercises: 3,
+            id: 2
+          },
+          {
+            name: 'css',
+            exercises: 30,
+            id: 3
+          }
+        ]
       }
     ]
   
-    return <Course course={course} />
+    return (
+    <Course course={course} />
+    )
   }
   
   export default App
