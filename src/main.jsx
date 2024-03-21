@@ -1,18 +1,18 @@
-import axios from 'axios'
+// import axios from 'axios'
 
-axios
-.get('http://localhost:3001/notes')
-.then( response => {
-  const notes = response.data
-  console.log(notes)
-})
+// axios
+// .get('http://localhost:3001/notes')
+// .then( response => {
+//   const notes = response.data
+//   console.log(notes)
+// })
   
 
-const promise2 = axios.get('http://localhost:3001/foobar')
+// const promise2 = axios.get('http://localhost:3001/foobar')
 
-promise2.then( res => {
-  console.log(res)
-})
+// promise2.then( res => {
+//   console.log(res)
+// })
 
 import React from 'react'
 import ReactDOM from 'react-dom/client'
