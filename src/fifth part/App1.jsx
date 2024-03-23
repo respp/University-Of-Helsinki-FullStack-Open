@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { Filter } from './Filter'
 import { PersonForm } from './PersonForm'
 import { Persons } from './Persons'
-import { Notification } from './Notification'
 import personServices from './services/persons'
 
 const App = () => {
@@ -11,7 +10,6 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber ,setNewNumber] = useState('')
   const [filter, setFilter] = useState('')
-  const [notification, setNotification] = useState(false)
 
   const hook = () => {
     personServices
@@ -48,7 +46,7 @@ const App = () => {
         }
       }
     })
-    if (!verify){ // añado contacto
+    if (!verify){
       const contactObject = {
         name : newName,
         number : newNumber
@@ -57,11 +55,7 @@ const App = () => {
       .create(contactObject)
       .then(res =>{
         setPersons(persons.concat(res.data))
-        setNotification(`Added ${res.data.name}`)
-        setTimeout(() =>{
-          setNotification(false)
-        },2500)
-        console.log('Added ',res.data)
+        console.log(res.data)
       })
       .catch(res => console.log('error al crear', res))
       setNewName('')
@@ -75,7 +69,6 @@ const App = () => {
           <form onSubmit={addContact}>
             <h2>add a new</h2>
             <PersonForm newName={newName} setNewName={setNewName} newNumber={newNumber} setNewNumber={setNewNumber}/>
-            <Notification message={notification}/>
           </form>
         <h2>Numbers</h2>
           <Persons persons={persons} filter={filter} setPersons={setPersons}/>

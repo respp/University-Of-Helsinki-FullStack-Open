@@ -1,0 +1,16 @@
+h2 {
+    color:rgb(2, 11, 30)
+}
+
+li {
+    color: gray;
+    padding-top: 3px;
+    font-size: 15px;
+  }
+
+  .added-message{
+    font-size: 2.5rem;
+    background-color: greenyellow;
+    color: green;
+    border: 2px solid green;
+  }

@@ -22,12 +22,12 @@ export const Persons = ({persons, filter, setPersons}) => {
   return (
     <>
     {filteredPersons.map(person => (
-      <li key={person.id}>
+      <div key={person.id}>
         <div >{person.name} {person.number}
         <button onClick={()=> deletePersons(person.id)}>delete</button>
         </div>
         
-      </li>
+      </div>
       ))}
     </>
   )
