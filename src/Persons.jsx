@@ -14,6 +14,9 @@ export const Persons = ({persons, filter, setPersons}) => {
         setPersons(updatedPersons)
         console.log('el recurso ha sido eliminado:' ,res.data)
       })
+      .catch(res=>{
+        console.log('error al cargar el recurso', res)
+      })
     }
 
   return (

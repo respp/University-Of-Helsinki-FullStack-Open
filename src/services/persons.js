@@ -13,9 +13,9 @@ const del = id =>{
     return axios.delete(`${baseUrl}/${id}`)
 }
 
-const put = (id,number) => {
+const update = (id,number) => {
     return axios.put(`${baseUrl}/${id}`, number)
 }
 
-export default {getAll, create, del, put}
+export default {getAll, create, del, update}
 

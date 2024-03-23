@@ -26,12 +26,14 @@ useEffect(hook, [])
         verify = true
         return alert(newName+' is already added to the phonebook')
       }else if(newName === person.name && newNumber !== person.number){ 
+        verify = true
         const changes = window.confirm(newName+` is already added to the phonebook, replace the old number with the new one`)
         if (changes){
-          const updatedPersons = persons.find(persons => persons.number === newNumber)
-          const changedNumber = {...persons, number: newNumber}
-          personServices.put(person.id,newNumber).then(res=>{
-            setPersons()
+          const updatedNumber = {...person, number:newNumber}
+          const id = person.id
+          personServices.update(id,updatedNumber).then(res=>{
+            console.log('se actualizó correctamente')
+            // setPersons({...person, number:newNumber})
           })
         }
       }
