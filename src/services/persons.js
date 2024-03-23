@@ -18,4 +18,3 @@ const update = (id,number) => {
 }
 
 export default {getAll, create, del, update}
-

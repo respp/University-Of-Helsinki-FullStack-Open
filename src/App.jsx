@@ -12,11 +12,11 @@ const App = () => {
   const [filter, setFilter] = useState('')
 
   const hook = () => {
-  personServices
-  .getAll()
-  .then( res => setPersons(res.data))
-  }
-useEffect(hook, [])
+    personServices
+    .getAll()
+    .then( res => setPersons(res.data))
+    }
+  useEffect(hook, [])
 
   const addContact = (e)=>{
     e.preventDefault()
@@ -31,9 +31,15 @@ useEffect(hook, [])
         if (changes){
           const updatedNumber = {...person, number:newNumber}
           const id = person.id
+
           personServices.update(id,updatedNumber).then(res=>{
             console.log('se actualizó correctamente')
-            // setPersons({...person, number:newNumber})
+            setPersons(persons.map(person =>
+              //Por cada persona si la id no es la que busco, la persona queda como antes, sino, cambia a la data que me de el servidor
+              person.id !== id 
+                    ? person
+                    : res.data
+            ))
           })
         }
       }
