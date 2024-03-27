@@ -14,3 +14,10 @@ li {
     color: green;
     border: 2px solid green;
   }
+
+  .error-message{
+    font-size: 2.5rem;
+    background-color: rgba(255, 99, 47, 0.16);
+    color: rgb(213, 46, 46);
+    border: 2px solid rgb(203, 24, 24);
+  }
