@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import countryServices from "./services/countries"
 import { Notification } from "./Notification"
+import { Display } from "./Display"
 
 const App = () => {
   const [countries, setCountries] = useState([])
@@ -12,23 +13,34 @@ const App = () => {
         countryServices
         .getAll()
         .then(res =>{
-          const allNames = res.data.map(country => country.name.common)
+          // const allNames = res.data.map(country => country.name.common)
+          const allNames = res.data
           setCountries(allNames)
+          .catch(err=>{
+            console.log('Hubo un error en la respuesta: ',err)
+          })
         })
     }, [])
 
     
 
     useEffect(() => {
-      const coincidences = countries.filter(country => country.toLowerCase().includes(filter.toLowerCase()))
-      if (coincidences.length > 10){
-        console.log(coincidences.length)
+      const coincidences = countries.filter(country => country.name.common.toLowerCase().includes(filter.toLowerCase()))
+      console.log(coincidences)
+      
+      if (coincidences.length > 10 && coincidences.length < 250){
         setMessage(`Too many matches, specify another filter`)
-      }
-      if(coincidences === 0){
+        setFilteredCountries([])
+      }else if (coincidences.length == 250){//Make with or
         setMessage(false)
+      }else if(coincidences.length == 0){
+        setMessage(false)
+        setFilteredCountries([])
       }
-      setFilteredCountries(coincidences)
+      else{
+        setMessage(false)
+        setFilteredCountries(coincidences)
+      }
     }, [countries, filter])
     
 
@@ -45,6 +57,7 @@ const App = () => {
           onChange={handleFilterChange}
         />
         <Notification message={message}/>
+        <Display filteredCountries={filteredCountries} />
   </div>
   )
 }
