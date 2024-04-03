@@ -13,7 +13,6 @@ const App = () => {
         countryServices
         .getAll()
         .then(res =>{
-          // const allNames = res.data.map(country => country.name.common)
           const allNames = res.data
           setCountries(allNames)
           .catch(err=>{
@@ -26,7 +25,6 @@ const App = () => {
 
     useEffect(() => {
       const coincidences = countries.filter(country => country.name.common.toLowerCase().includes(filter.toLowerCase()))
-      // console.log(coincidences)
       
       if (coincidences.length > 10 && coincidences.length < 250){
         setMessage(`Too many matches, specify another filter`)
@@ -57,7 +55,7 @@ const App = () => {
       onChange={handleFilterChange}
     />
     <Notification message={message}/>
-    <Display filteredCountries={filteredCountries} setFilteredCountries={setFilteredCountries} />
+    <Display filteredCountries={filteredCountries} />
 </div>
   )
 }
