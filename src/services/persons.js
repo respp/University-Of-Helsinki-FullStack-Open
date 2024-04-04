@@ -1,5 +1,6 @@
 import axios from 'axios'
-const baseUrl = 'http://localhost:3001/api/persons'
+// const baseUrl = 'http://localhost:3001/api/persons'
+const baseUrl = '/api/persons' //Declarando como url relativa
 
 const getAll = ()=>{
     return axios.get(baseUrl)
