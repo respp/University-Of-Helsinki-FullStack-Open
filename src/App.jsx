@@ -71,7 +71,13 @@ const App = () => {
         },2500)
         console.log('Added ',res.data)
       })
-      .catch(res => console.log('error al crear', res))
+      .catch(err =>{ 
+        console.log('error al crear', err.response.data.err)
+        setUpdateError(`${err.response.data.err}`)
+            setTimeout(() =>{
+              setUpdateError(false)
+            },2500)
+      })
       setNewName('')
       setNewNumber('')
      }

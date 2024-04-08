@@ -18,7 +18,7 @@ export const PersonForm = ({newName, setNewName, newNumber ,setNewNumber}) => {
                     onChange={handleContactChange} /> <br />
             number: <input 
                     value={newNumber}
-                    pattern="[0-9]+"
+                    pattern="[0-9\-]+"
                     onChange={handleNumberChange} />
             </div>
             <div>
