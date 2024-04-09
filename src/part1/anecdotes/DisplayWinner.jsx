@@ -9,8 +9,8 @@ export const DisplayWinner = ({winnerId, votesForWinner}) => {
       }
 
   return (
-    <div><p>El ganador es: 
-      <h4>{winnerId}</h4><br /> y su puntaje es: <h4>{votesForWinner}</h4>
-    </p></div>
+    <div><h2>Anecdote with most votes:
+      <div><h6>{winnerId}</h6><br /> Votes: <h4>{votesForWinner}</h4></div>
+    </h2></div>
     )
 }
