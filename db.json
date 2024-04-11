@@ -1,21 +1,6 @@
 {
   "persons": [
     {
-      "id": "f240",
-      "name": "renzo",
-      "number": "2"
-    },
-    {
-      "id": "f234",
-      "name": "esp",
-      "number": "35"
-    },
-    {
-      "id": "f5e5",
-      "name": "jorge",
-      "number": "5678"
-    },
-    {
       "id": "bff0",
       "name": "ren esp",
       "number": "44444444"
@@ -36,24 +21,14 @@
       "number": "333"
     },
     {
-      "id": "013e",
-      "name": "mamani",
-      "number": "2134"
-    },
-    {
-      "id": "95ff",
-      "name": "rogelio",
-      "number": "56789912312312313131"
-    },
-    {
-      "id": "20e0",
-      "name": "renzo espiinosa",
-      "number": "2"
-    },
-    {
       "id": "38a7",
       "name": "maestruli",
       "number": "888"
+    },
+    {
+      "id": "d4c8",
+      "name": "renzo",
+      "number": "123"
     }
   ]
 }
