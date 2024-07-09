@@ -1,10 +1,17 @@
-const Filter = () => {
-    const handleChange = e => {
-      // input-field value is in variable e.target.value
-    }
-    const style = {
-      marginBottom: 10
-    }
+import { useDispatch } from 'react-redux'
+import { filterChange } from '../reducers/filterReducer'
+
+export const Filter = () => {
+  const dispatch = useDispatch()
+
+  const handleChange = e => {
+    const content = e.target.value
+    dispatch(filterChange(content))
+  }
+
+  const style = {
+    marginBottom: 10
+  }
   
     return (
       <div style={style}>
@@ -13,4 +20,3 @@ const Filter = () => {
     )
   }
   
-  export default Filter
