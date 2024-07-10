@@ -16,14 +16,9 @@ export const AnecdoteList = () => {
         )
     )
   
-  const vote = id =>{
-    dispatch(voteAnecdote(id))
-    let anecdoteVoted = anecdotes.find(anecdote => anecdote.id == id).content
-    console.log(anecdoteVoted)
-    dispatch(showMessage(`The anecdote "${anecdoteVoted}" was voted`))
-        setTimeout(()=>{
-          dispatch(showMessage(null))
-        }, 5000)
+  const vote = anecdote =>{
+    dispatch(voteAnecdote(anecdote))
+    dispatch(showMessage(`The anecdote "${anecdote.content}" was voted`, 10))
   } 
 
   return (
@@ -35,7 +30,7 @@ export const AnecdoteList = () => {
                 </div>
                 <div>
                     has {anecdote.votes}
-                    <button onClick={() => vote(anecdote.id)}>vote</button>
+                    <button onClick={() => vote(anecdote)}>vote</button>
                 </div>
                 </div>
             )}

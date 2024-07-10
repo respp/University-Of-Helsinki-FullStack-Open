@@ -5,12 +5,25 @@ const notificationSlice = createSlice({
     name : 'notification',
     initialState : null,
     reducers : {
-        showMessage(state, action){
+        setMessage(state, action){
             return action.payload
         }
     }
 })
 
-export const { showMessage } = notificationSlice.actions
+//***************** REDUX THUNK ******************/
 
+export const showMessage = (message, time) =>{
+    return async dispatch =>{
+        dispatch(setMessage(message))
+        setTimeout(()=>{
+          dispatch(setMessage(null))
+        }, time * 1000)
+    }
+}
+
+// Export the actions
+export const { setMessage } = notificationSlice.actions
+
+// Export the reducer
 export default notificationSlice.reducer
