@@ -1,14 +1,21 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { createAnecdote } from '../requests'
+import PropTypes from 'prop-types';
 
-const AnecdoteForm = () => {
+const AnecdoteForm = ({ notificationDispatch }) => {
   const queryClient = useQueryClient()
   const newAnecdoteMutation = useMutation({
       mutationFn: createAnecdote, 
       onSuccess: (newAnecdote)=>{ //newAnecdote viene de createAnecdote en requests.js
         const anecdotes = queryClient.getQueryData(['anecdotes'])
         queryClient.setQueryData(['anecdotes'], anecdotes.concat(newAnecdote))
-      } //invalidando el antiguo query
+      }, //invalidando el antiguo query
+      onError: ()=>{
+        notificationDispatch({type: 'SET_MESSAGE', payload: 'too short anecdote, must have length 5 or more'})
+        setTimeout(()=>
+          notificationDispatch({type: 'NULL'}),5000
+        )
+      }
     })
 
   const onCreate = (event) => {
@@ -16,6 +23,7 @@ const AnecdoteForm = () => {
     const content = event.target.anecdote.value
     event.target.anecdote.value = ''
     newAnecdoteMutation.mutate({ content, votes : 0 })
+    notificationDispatch({type:'SET_MESSAGE', payload:`The anecdote "${content}" was created`})
 }
 
   return (
@@ -28,5 +36,9 @@ const AnecdoteForm = () => {
     </div>
   )
 }
+
+AnecdoteForm.propTypes = {
+  notificationDispatch: PropTypes.func.isRequired,
+};
 
 export default AnecdoteForm

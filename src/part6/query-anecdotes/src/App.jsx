@@ -2,9 +2,22 @@ import AnecdoteForm from './components/AnecdoteForm'
 import Notification from './components/Notification'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getAnecdotes, updateAnecdote } from './requests'
-import axios from 'axios'
+import { useReducer, useContext, createContext } from 'react'
 
+
+
+const notificationReducer = (state, action) =>{
+  switch(action.type){
+    case 'SET_MESSAGE': {
+      return action.payload
+    }
+    case 'NULL': return null
+    default: return state
+  }
+}
 const App = () => {
+  const [notification, notificationDispatch] = useReducer(notificationReducer, null)
+  
 
   const queryClient = useQueryClient()
 
@@ -23,6 +36,7 @@ const App = () => {
   })
   const handleVote = (anecdote) => {
     updateAnecdoteMutation.mutate({ ...anecdote, votes : anecdote.votes + 1 })
+    notificationDispatch({type:'SET_MESSAGE', payload: `you voted "${anecdote.content}"`})
   }
 
   // console.log('RESULT IS ERROR: ', result.isError)
@@ -36,8 +50,8 @@ const App = () => {
     <div>
       <h3>Anecdote app</h3>
     
-      <Notification />
-      <AnecdoteForm />
+      <Notification notification={notification} />
+      <AnecdoteForm notificationDispatch={notificationDispatch}/>
     
       {anecdotes.map(anecdote =>
         <div key={anecdote.id}>
