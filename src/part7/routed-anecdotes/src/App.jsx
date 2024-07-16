@@ -1,40 +1,32 @@
 import { useState } from 'react'
+import {
+  BrowserRouter as Router,
+  Routes, Route, Link,
+  useParams
+} from 'react-router-dom'
+import { AnecdoteList } from './components/AnecdoteList'
+import { About } from './components/About'
 
 const Menu = () => {
   const padding = {
     paddingRight: 5
   }
   return (
+    <Router>
     <div>
-      <a href='#' style={padding}>anecdotes</a>
-      <a href='#' style={padding}>create new</a>
-      <a href='#' style={padding}>about</a>
+      <Link style={padding} to="/anecdotes">anecdotes</Link>
+      <Link style={padding} to="/create">create new</Link>
+      <Link style={padding} to="/">about</Link>
     </div>
+
+    <Routes>
+      <Route path="/anecdotes/:id" element={<AnecdoteList />} />
+      <Route path="/create" element={<CreateNew />} />
+      <Route path="/" element={<About />} />
+    </Routes>
+    </Router>
   )
 }
-
-const AnecdoteList = ({ anecdotes }) => (
-  <div>
-    <h2>Anecdotes</h2>
-    <ul>
-      {anecdotes.map(anecdote => <li key={anecdote.id} >{anecdote.content}</li>)}
-    </ul>
-  </div>
-)
-
-const About = () => (
-  <div>
-    <h2>About anecdote app</h2>
-    <p>According to Wikipedia:</p>
-
-    <em>An anecdote is a brief, revealing account of an individual person or an incident.
-      Occasionally humorous, anecdotes differ from jokes because their primary purpose is not simply to provoke laughter but to reveal a truth more general than the brief tale itself,
-      such as to characterize a person by delineating a specific quirk or trait, to communicate an abstract idea about a person, place, or thing through the concrete details of a short narrative.
-      An anecdote is "a story with a point."</em>
-
-    <p>Software engineering is full of excellent anecdotes, at this app you can find the best and add more.</p>
-  </div>
-)
 
 const Footer = () => (
   <div>
@@ -83,7 +75,21 @@ const CreateNew = (props) => {
 
 }
 
+const Anecdote = ({ anecdotes })=> {
+  const id = useParams().id
+  const anecdote = anecdotes.find(a => a.id === Number(id))
+  console.log('ANECDOTE ID: ',anecdote)
+  return(
+    <>
+    {anecdote}
+    </>
+  )
+}
+
 const App = () => {
+  const padding = {
+    paddingRight: 5
+  }
   const [anecdotes, setAnecdotes] = useState([
     {
       content: 'If it hurts, do it more often',
@@ -124,12 +130,21 @@ const App = () => {
 
   return (
     <div>
-      <h1>Software anecdotes</h1>
-      <Menu />
-      <AnecdoteList anecdotes={anecdotes} />
-      <About />
-      <CreateNew addNew={addNew} />
-      <Footer />
+    <Router>
+        <div>
+          <Link style={padding} to="/">anecdotes</Link>
+          <Link style={padding} to="/create">create new</Link>
+          <Link style={padding} to="/about">about</Link>
+        </div>
+
+        <Routes>
+          <Route path="/anecdotes/:id" element={<Anecdote anecdotes={anecdotes} />} />
+          <Route path="/" element={<AnecdoteList anecdotes={anecdotes} />} />
+          <Route path="/create" element={<CreateNew />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+    </Router>
+    <Footer />
     </div>
   )
 }
