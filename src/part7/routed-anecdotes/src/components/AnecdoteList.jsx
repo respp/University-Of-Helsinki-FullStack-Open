@@ -1,6 +1,4 @@
-import {
-    BrowserRouter as Link
-  } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 export const AnecdoteList = ({ anecdotes }) => {
@@ -11,8 +9,7 @@ export const AnecdoteList = ({ anecdotes }) => {
       <ul>
         {anecdotes.map(anecdote => 
         <li key={anecdote.id} to={`/anecdotes/${anecdote.id}`} >
-          {/* <Link to={`/anecdotes/${anecdote.id}`}> {anecdote.content} </Link> */}
-          {anecdote.content}
+          <Link to={`/anecdotes/${anecdote.id}`}> {anecdote.content} </Link>
         </li>)}
       </ul>
     </div>
