@@ -29,9 +29,7 @@ export const Menu = () => {
           id: 2
         }
       ])
-    
-      const [notification, setNotification] = useState('')
-    
+      
       const addNew = (anecdote) => {
         anecdote.id = Math.round(Math.random() * 10000)
         setAnecdotes(anecdotes.concat(anecdote))
