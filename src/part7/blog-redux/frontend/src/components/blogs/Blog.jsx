@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { likeABlog, deleteBlog } from "../reducers/blogReducer";
+import { likeABlog, deleteBlog } from "../../reducers/blogReducer";
 import { useParams } from "react-router-dom";
-import Togglable from "./Togglable";
+import Togglable from "../Togglable";
 import { CommentForm } from "./CommentForm";
 import { Button } from 'react-bootstrap';
 

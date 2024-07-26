@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { commentBlog } from '../reducers/blogReducer'
+import { commentBlog } from '../../reducers/blogReducer'
 
 export const CommentForm = ({ id }) => {
   const dispatch = useDispatch()

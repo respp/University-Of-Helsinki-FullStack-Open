@@ -1,17 +1,17 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { DisplayBlogs } from "../components/DisplayBlogs";
-import { DisplayUsers } from "../components/DisplayUsers";
-import { LoginForm } from "../components/LoginForm";
+import { DisplayBlogs } from "../components/blogs/DisplayBlogs";
+import { DisplayUsers } from "../components/users/DisplayUsers";
+import { LoginScreen } from "../components/login/LoginScreen";
 import { useSelector } from "react-redux";
 import { UserBlogs } from "../components/UserBlogs";
-import { User } from '../components/User'
-import Blog from "../components/Blog";
+import { User } from '../components/users/User'
+import Blog from "../components/blogs/Blog";
 
 
 const AppRoutes = () => {
   const user = useSelector(state => state.user)
 
-  if (user === null) return <LoginForm />
+  if (user === null) return <LoginScreen />
 
   return (
     <>

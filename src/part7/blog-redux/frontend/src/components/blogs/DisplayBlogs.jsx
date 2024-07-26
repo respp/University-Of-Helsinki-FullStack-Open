@@ -1,17 +1,18 @@
 import React from 'react'
 import { useRef } from 'react';
 import { NewBlogForm } from './NewBlogForm';
-import Togglable from "./Togglable";
-import { Notification } from "./Notification";
+import Togglable from "../Togglable";
+import { Notification } from "../Notification";
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Error } from './ErrorMessage';
+import { Error } from '../ErrorMessage';
 import { Card } from 'react-bootstrap';
 
 export const DisplayBlogs = () => {
     const blogs = useSelector(state => state.blogs)
     const blogFormRef = useRef();
 
+    console.log(blogs)
 
   return (
     <div data-testid="logged">

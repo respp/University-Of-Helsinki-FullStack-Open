@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { newBlog } from "../reducers/blogReducer";
-import { notification } from "../reducers/notificationReducer";
+import { newBlog } from "../../reducers/blogReducer";
+import { notification } from "../../reducers/notificationReducer";
 
 export const NewBlogForm = () => {
   const dispatch = useDispatch()
@@ -13,6 +13,7 @@ export const NewBlogForm = () => {
       author : input.author.value,
       url : input.url.value,
       likes : 0,
+      description: input.description.value
     }
     dispatch(newBlog(content))
     dispatch(notification(`the blog "${content.title}" by ${content.author} was added`, 5))
@@ -41,6 +42,13 @@ export const NewBlogForm = () => {
           <input
             id="url"
             name="url"
+            required
+          />
+          <br />
+          <label htmlFor="url">description: </label>
+          <input
+            id="description"
+            name="description"
             required
           />
           <br />
