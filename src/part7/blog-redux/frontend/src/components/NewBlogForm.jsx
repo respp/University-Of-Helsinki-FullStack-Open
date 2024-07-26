@@ -1,22 +1,22 @@
-import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { newBlog } from "../reducers/blogReducer";
+import { notification } from "../reducers/notificationReducer";
 
-export const NewBlogForm = ({ createNewBlog }) => {
-  const [newBlogName, setNewBlogName] = useState("");
-  const [newBlogAuthor, setNewBlogAuthor] = useState("");
-  const [newBlogUrl, setNewBlogUrl] = useState("");
+export const NewBlogForm = () => {
+  const dispatch = useDispatch()
 
-  const addBlog = (e) => {
-    e.preventDefault();
-    createNewBlog({
-      title: newBlogName,
-      author: newBlogAuthor,
-      url: newBlogUrl,
-      likes: 0,
-    });
-    setNewBlogName("");
-    setNewBlogAuthor("");
-    setNewBlogUrl("");
-  };
+  const addBlog = e =>{
+    e.preventDefault()
+    const input = e.target
+    const content = {
+      title : input.title.value,
+      author : input.author.value,
+      url : input.url.value,
+      likes : 0,
+    }
+    dispatch(newBlog(content))
+    dispatch(notification(`the blog "${content.title}" by ${content.author} was added`, 5))
+  }
 
   return (
     <div>
@@ -26,26 +26,23 @@ export const NewBlogForm = ({ createNewBlog }) => {
           <label htmlFor="title">title: </label>
           <input
             id="title"
-            value={newBlogName}
-            onChange={({ target }) => setNewBlogName(target.value)}
+            name="title"
             required
-          />{" "}
+          />
           <br />
           <label htmlFor="author">author: </label>
           <input
             id="author"
-            value={newBlogAuthor}
-            onChange={({ target }) => setNewBlogAuthor(target.value)}
+            name="author"
             required
-          />{" "}
+          />
           <br />
           <label htmlFor="url">url: </label>
           <input
             id="url"
-            value={newBlogUrl}
-            onChange={({ target }) => setNewBlogUrl(target.value)}
+            name="url"
             required
-          />{" "}
+          />
           <br />
           <button type="submit">Create</button>
         </div>

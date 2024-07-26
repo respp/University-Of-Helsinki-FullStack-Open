@@ -7,6 +7,30 @@
   border-radius: 2px;
 }
 
+.custom-navbar {
+  margin: 0;
+  padding: 0;
+  width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
+}
+
+.custom-container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.custom-link {
+  color: #007bff; /* Color del enlace */
+  text-decoration: none; /* Eliminar subrayado */
+  font-size: 16px; /* Tamaño de fuente */
+  transition: color 0.3s ease; /* Efecto de transición para el color */
+}
+
+.custom-link:hover {
+  color: #0056b3; /* Color del enlace al pasar el ratón */
+  text-decoration: underline; /* Subrayar al pasar el ratón */
+}
+
 .error {
   background-color: #e76f7b77;
   color: #cc1b1b;
@@ -19,11 +43,52 @@
 .blog {
   border: solid 1px black;
   width: auto;
-  padding: 3px;
+  padding: 6px;
+  margin: 0;
 }
 
 .removeBtn {
   background-color: red;
   color: #e9dfdf;
   font-weight: bold;
+}
+
+.user{
+  display: flex;
+}
+
+.table{
+  width: 40%;
+  margin: auto;
+  border-collapse: collapse;
+  border: solid 1px gray;
+}
+
+td{
+  border: solid 1px rgb(156, 156, 156);
+  text-align: center;
+}
+
+/* In your CSS file (e.g., App.css) */
+nav {
+  margin-bottom: 1em;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 1em;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
 }
