@@ -2,6 +2,7 @@ import React from "react";
 
 import { Error } from "../ErrorMessage";
 import { LoginForm } from "./LoginForm";
+import './login.css'
 
 export const LoginScreen = () => {
 

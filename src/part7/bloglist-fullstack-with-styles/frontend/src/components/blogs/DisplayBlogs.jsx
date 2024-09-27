@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Error } from '../ErrorMessage';
 import { Card } from 'react-bootstrap';
+import './blog.css'
+
 
 export const DisplayBlogs = () => {
     const blogs = useSelector(state => state.blogs)

@@ -1,0 +1,129 @@
+/* ******************* BLOG ******************* */
+
+.specific-blog{
+    display: flex;
+    flex-direction: column;
+    padding-left: 100px;
+  }
+
+  .blog-content{
+    padding: 5px 100px  5px 5px;
+    color: #aab5e4;
+    background-color: #19274a;
+    width: 40%;
+    border-radius: 14px;
+    border: solid 1px var(--primary-color);
+  }
+
+  .custom-link {
+    color: #007bff; /* Color del enlace */
+    text-decoration: none; /* Eliminar subrayado */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: color 0.3s ease; /* Efecto de transición para el color */
+    letter-spacing: 1.5px;
+  }
+  
+  .custom-link:hover {
+    color: #0056b3; /* Color del enlace al pasar el ratón */
+    text-decoration: underline; /* Subrayar al pasar el ratón */
+  }
+
+  .btn-like{
+    font-size: .9rem;
+    width: 90px;
+  }
+  
+  .btn-like:hover{
+    background-color: var(--secondary-color);
+    color: white;
+    border-color: #94c4f7;
+  }
+  
+  .btn-remove{
+    font-size: .9rem;
+    width: 90px;
+    border-color: #f15483;
+    color: #f15483;
+  }
+  
+  .btn-remove:hover{
+    background-color: #1d224c;
+    color: white;
+    border-color: #2d3576;
+  }
+
+/* ******************* DISPLAY BLOG ******************* */
+
+.blog {
+    border: solid 1px var(--primary-color);
+    width: auto;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 6px;
+  }
+
+  .bg-blogs{
+    background-color: var(--secondary-color);
+    height: 100vh;
+  }
+  
+  .bg-blogs h1{
+    padding: 10px;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+  }
+
+/* ******************* COMMENT FORM ******************* */
+
+  .new-control{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(195, 235, 232);
+    margin-bottom: 0;
+    width: 100%;
+  }
+
+/* ******************* NEW BLOG FORM ******************* */
+
+.new-blog{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-new-blog{
+    background-color: var(--primary-color);
+    padding: 20px;
+    border-radius: 20px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .form-new-blog label{
+    color: #b6b6b6;
+    letter-spacing: 2px;
+  }
+
+  .btn-create{
+    border: 2px solid #1f637b;
+    height: 30px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 1rem;
+    padding: 5px;
+    font-family: 'Avenir Medium';
+    box-shadow: 
+    0px 0px 3px 2px #1d346f,
+    inset 0px 0px 3px 2px #1d346f;
+    background-color: #0D1322;
+    color: #dfdfdf;
+  }

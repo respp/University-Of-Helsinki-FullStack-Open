@@ -1,0 +1,130 @@
+/* ******************* DISPLAY USERS ******************* */
+
+.bg-blogs{
+    background-color: var(--secondary-color);
+    height: 100vh;
+  }
+  
+  .bg-blogs h1{
+    padding: 10px;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+  }
+
+  .custom-table {
+    border-collapse: separate; /* Importante para aplicar el border-radius */
+    border-spacing: 0; /* Quita el espacio entre celdas */
+    width: 40%;
+    border: 1px solid #dee2e6; /* Mantén el estilo de borde de Bootstrap */
+    border-radius: 10px; /* Aquí se aplica el border-radius a la tabla */
+  }
+  
+  .custom-table tbody tr:first-child td:first-child {
+    border-top-left-radius: 10px; /* Redondeo de la esquina superior izquierda */
+  }
+  
+  .custom-table tbody tr:first-child td:last-child {
+    border-top-right-radius: 10px; /* Redondeo de la esquina superior derecha */
+  }
+  
+  .custom-table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 10px; /* Redondeo de la esquina inferior izquierda */
+  }
+  
+  .custom-table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 10px; /* Redondeo de la esquina inferior derecha */
+  }
+  
+  td{
+    border: solid 1px rgb(156, 156, 156);
+    text-align: center;
+  }
+  
+  .link-table{
+    color: #0056b3;
+    font-size: 1.2rem;
+  }
+
+/* ******************* NAVIGATION MENU ******************* */
+
+nav {
+    margin-bottom: 1em;
+  }  
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 1em;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+  
+
+.custom-navbar {
+    color: red;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-color);
+    width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
+  }
+
+  .custom-container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .nav-title{
+    font-family: 'Avenir Bold';
+    font-size: 1.5rem;
+    margin: 10px 15%;
+    margin-bottom: 25px;
+  }
+
+  .me-auto{
+    margin: 10px 50px 10px 10px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .logged-in{
+    display: flex;
+  }
+
+  .btn-logged{
+    border: none;
+    height: 30px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 1rem;
+    padding: 5px;
+    font-family: 'Avenir Medium';
+    background-color: #1c2a4f;
+    color: #dfdfdf;
+  }
+  
+  .btn-logged:hover{
+    background-color: #213258;
+    border-color: #79a0c3;
+    text-decoration: none;
+  }
+
+/* ******************* USER ******************* */
+
+/*** Nada :P ***/

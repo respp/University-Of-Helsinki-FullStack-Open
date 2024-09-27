@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Togglable from "../Togglable";
 import { CommentForm } from "./CommentForm";
 import { Button } from 'react-bootstrap';
+import './blog.css'
 
 const Blog = () => {
   const { id } = useParams();
@@ -27,7 +28,7 @@ const Blog = () => {
 
   console.log(blog.comments)
   return (
-    <div className="bg-blogs specific-blog">
+    <div className="specific-blog">
       <h1>&quot;{blog.title}&quot; by {blog.author}</h1>
       <div className="blog-content">
           Url: <a href={blog.url} className="custom-link">{blog.url}</a> <br />

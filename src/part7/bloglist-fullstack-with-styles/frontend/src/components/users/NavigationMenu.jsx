@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Nav, Navbar, Container } from 'react-bootstrap';
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from '../../reducers/userReducer'
+import './users.css'
 
 
 

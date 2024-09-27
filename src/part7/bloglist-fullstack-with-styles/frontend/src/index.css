@@ -27,13 +27,6 @@ body {
   
 }
 
-h6{
-  color: white;
-  line-height: 1.6;
-  font-size: .9rem;
-  letter-spacing: 1.3px;
-}
-
 a {
   color: var(--link-color);
   text-decoration: none;
@@ -41,201 +34,6 @@ a {
 
 a:hover {
   text-decoration: underline;
-}
-
-
-.notification {
-  background-color: #9fe76f37;
-  color: #138b3f;
-  border: 2px solid #138b3f;
-  width: 100%;
-  font-size: 1.2rem;
-  border-radius: 2px;
-}
-
-.custom-navbar {
-  color: red;
-  margin: 0;
-  padding: 0;
-  background-color: var(--primary-color);
-  width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
-}
-
-.custom-container {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-
-.custom-link {
-  color: #007bff; /* Color del enlace */
-  text-decoration: none; /* Eliminar subrayado */
-  font-size: 16px; /* Tamaño de fuente */
-  transition: color 0.3s ease; /* Efecto de transición para el color */
-  letter-spacing: 1.5px;
-}
-
-.custom-link:hover {
-  color: #0056b3; /* Color del enlace al pasar el ratón */
-  text-decoration: underline; /* Subrayar al pasar el ratón */
-}
-
-.error {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  bottom: 0px;
-  background-color: #e76f7b2b;
-  color: #cc1b1b;
-  border: 2px solid rgb(128, 0, 0);
-  width: 100%;
-  font-size: 1.1rem;
-  font-family: 'Avenir Medium';
-  border-radius: 2px;
-  z-index: 2;
-}
-
-.blog {
-  border: solid 1px var(--primary-color);
-  width: auto;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 6px;
-}
-
-.removeBtn {
-  background-color: red;
-  color: #e9dfdf;
-  font-weight: bold;
-}
-
-.user{
-  display: flex;
-}
-
-.table{
-  width: 40%;
-  margin: auto;
-  border-collapse: collapse;
-  border: solid 1px gray;
-}
-
-td{
-  border: solid 1px rgb(156, 156, 156);
-  text-align: center;
-}
-
-/* NAV */
-nav {
-  margin-bottom: 1em;
-}
-
-.nav-title{
-  font-family: 'Avenir Bold';
-  font-size: 1.5rem;
-}
-
-nav ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-nav ul li {
-  display: inline;
-  margin-right: 1em;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #000;
-}
-
-nav ul li a:hover {
-  text-decoration: underline;
-}
-
-
-
-/* LOGIN */
-.login-form{
-  background-color: var(--secondary-color);
-  border-radius: 29px;
-  width: 425px;
-  height: 425px;
-  /* min-height: 100%; */
-  padding: 40px;
-  padding-top: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.login-screen{
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  background-color: var(--primary-color);
-  /* flex-direction: column; */
-  align-items: center;
-  margin-top: auto;
-  margin-bottom: auto;
-  background-image: url('../public/images/flor.webp');
-  background-size: 600px 500px; /* Esto hace que la imagen cubra todo el fondo */
-  background-repeat: no-repeat; /* Esto evita que la imagen se repita */
-  background-position: -30px 245px;
-}
-
-.label-form{
-  letter-spacing: 2px;
-  font-size: 1rem;
-}
-
-.control{
-  background-color: var(--third-color);
-  border: none;
-  border-radius: 10px;
-  height: 28px;
-  color: #798B9F;
-  font-size: .8rem;
-  margin-bottom: 30px;
-}
-
-.new-control{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid rgb(195, 235, 232);
-  margin-bottom: 0;
-  width: 100%;
-}
-
-.separation-new-blog{
-  margin-bottom: 20px;
-}
-
-.new-blog{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.form-new-blog{
-  background-color: var(--primary-color);
-  padding: 20px;
-  border-radius: 20px;
-  width: 40%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.form-new-blog label{
-  color: #b6b6b6;
-  letter-spacing: 2px;
 }
 
 
@@ -249,29 +47,6 @@ nav ul li a:hover {
   background-color: #273963;
   color: #bcbcbc; /* Cambia el color del texto */
   outline: none; /* Quita el borde predeterminado */
-}
-
-.title-subtitle{
-  display: flex;
-  flex-direction: column;
-  width: 30%;
-  margin-bottom: 20%;
-  margin-right: 10%;
-}
-
-.title-subtitle h2{
-  font-size: 5rem;
-  font-family: 'Avenir Bold';
-}
-
-.two-btns{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 30px;
 }
 
 .btn{
@@ -297,7 +72,7 @@ nav ul li a:hover {
   border-color: #79a0c3;
 }
 
-.create-btn{
+.create-btn{ /* usado en 2 componentes, CommentForm y LoginForm */
   border: 2px solid #70CDEE;
   font-family: 'Avenir Bold';
   box-shadow: 
@@ -305,108 +80,42 @@ nav ul li a:hover {
   inset 0px 0px 5px 2px #1d346f;
 }
 
-.login-btn{
-  border: none;
-  background-color: #17223B;
-}
+/* ***** NOTIFICATION ***** */
 
-.btn-logged{
-  border: none;
-  height: 30px;
-  width: 100px;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  align-items: center;
-  border-radius: 10px;
-  font-size: 1rem;
-  padding: 5px;
-  font-family: 'Avenir Medium';
-  background-color: #1c2a4f;
-  color: #dfdfdf;
-}
-
-.btn-logged:hover{
-  background-color: #213258;
-  border-color: #79a0c3;
-  text-decoration: none;
-}
-
-.btn-create{
-  border: 2px solid #1f637b;
-  height: 30px;
-  width: 100px;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  align-items: center;
-  border-radius: 10px;
-  font-size: 1rem;
-  padding: 5px;
-  font-family: 'Avenir Medium';
-  box-shadow: 
-  0px 0px 3px 2px #1d346f,
-  inset 0px 0px 3px 2px #1d346f;
-  background-color: #0D1322;
-  color: #dfdfdf;
-}
-
-.me-auto{
-  margin: 10px 50px 10px 10px;
-  display: flex;
+.notification {
+  background-color: #9fe76f37;
+  color: #138b3f;
+  border: 2px solid #138b3f;
   width: 100%;
-  justify-content: space-between;
-}
-
-.logged-in{
-  display: flex;
-}
-
-.nav-title{
-  margin: 10px 15%;
-  margin-bottom: 25px;
-}
-
-.bg-blogs{
-  background-color: var(--secondary-color);
-  height: 100vh;
-}
-
-.bg-blogs h1{
-  padding: 10px;
-  font-size: 2.5rem;
-  letter-spacing: 1px;
-}
-
-.custom-table {
-  border-collapse: separate; /* Importante para aplicar el border-radius */
-  border-spacing: 0; /* Quita el espacio entre celdas */
-  width: 40%;
-  border: 1px solid #dee2e6; /* Mantén el estilo de borde de Bootstrap */
-  border-radius: 10px; /* Aquí se aplica el border-radius a la tabla */
-}
-
-.custom-table tbody tr:first-child td:first-child {
-  border-top-left-radius: 10px; /* Redondeo de la esquina superior izquierda */
-}
-
-.custom-table tbody tr:first-child td:last-child {
-  border-top-right-radius: 10px; /* Redondeo de la esquina superior derecha */
-}
-
-.custom-table tbody tr:last-child td:first-child {
-  border-bottom-left-radius: 10px; /* Redondeo de la esquina inferior izquierda */
-}
-
-.custom-table tbody tr:last-child td:last-child {
-  border-bottom-right-radius: 10px; /* Redondeo de la esquina inferior derecha */
-}
-
-
-.link-table{
-  color: #0056b3;
   font-size: 1.2rem;
+  border-radius: 2px;
 }
+
+/* ***** ERROR MESSAGE ***** */
+
+.error {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0px;
+  background-color: #e76f7b2b;
+  color: #cc1b1b;
+  border: 2px solid rgb(128, 0, 0);
+  width: 100%;
+  font-size: 1.1rem;
+  font-family: 'Avenir Medium';
+  border-radius: 2px;
+  z-index: 2;
+}
+
+/* ***** TOGGLABLE ***** */
+.separation-new-blog{
+  margin-bottom: 20px;
+}
+
+
+/* ***** USER BLOGS ***** */
 
 .custom-list {
   list-style: none; /* Elimina los puntos predeterminados */
@@ -430,41 +139,7 @@ nav ul li a:hover {
   margin-left: 20px;
 }
 
-.btn-like{
-  font-size: .9rem;
-  width: 90px;
-}
 
-.btn-like:hover{
-  background-color: var(--secondary-color);
-  color: white;
-  border-color: #94c4f7;
-}
 
-.btn-remove{
-  font-size: .9rem;
-  width: 90px;
-  border-color: #f15483;
-  color: #f15483;
-}
 
-.btn-remove:hover{
-  background-color: #1d224c;
-  color: white;
-  border-color: #2d3576;
-}
 
-.specific-blog{
-  display: flex;
-  flex-direction: column;
-  padding-left: 100px;
-}
-
-.blog-content{
-  padding: 5px 100px  5px 5px;
-  color: #aab5e4;
-  background-color: #19274a;
-  width: 40%;
-  border-radius: 14px;
-  border: solid 1px var(--primary-color);
-}

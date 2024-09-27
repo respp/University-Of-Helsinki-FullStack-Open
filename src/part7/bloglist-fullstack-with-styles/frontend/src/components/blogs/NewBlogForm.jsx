@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux";
 import { newBlog } from "../../reducers/blogReducer";
 import { notification } from "../../reducers/notificationReducer";
+import './blog.css'
+
 
 export const NewBlogForm = () => {
   const dispatch = useDispatch()
@@ -26,7 +28,7 @@ export const NewBlogForm = () => {
         {/* <div> */}
           <label htmlFor="title">title: </label>
           <input
-            className="control new-control"
+            className="control"
             id="title"
             name="title"
             required
@@ -34,7 +36,7 @@ export const NewBlogForm = () => {
           <br />
           <label htmlFor="author">author: </label>
           <input
-            className="control new-control"
+            className="control"
             id="author"
             name="author"
             required
@@ -42,7 +44,7 @@ export const NewBlogForm = () => {
           <br />
           <label htmlFor="url">url: </label>
           <input
-            className="control new-control"
+            className="control"
             id="url"
             name="url"
             required
@@ -50,7 +52,7 @@ export const NewBlogForm = () => {
           <br />
           <label htmlFor="url">description: </label>
           <input
-            className="control new-control"
+            className="control"
             id="description"
             name="description"
             required
