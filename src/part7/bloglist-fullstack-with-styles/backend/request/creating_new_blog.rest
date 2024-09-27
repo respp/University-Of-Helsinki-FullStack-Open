@@ -1,0 +1,10 @@
+POST http://localhost:3003/api/blogs/
+Content-Type: application/json
+Authorization: Bearer TOKEN
+
+{
+    "title": "El blog de play ffbfbf",
+    "author": "yoy ffbo",
+    "url": "bfurl",
+    "likes": 12
+}
