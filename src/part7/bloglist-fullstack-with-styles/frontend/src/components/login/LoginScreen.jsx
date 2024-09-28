@@ -6,6 +6,7 @@ import { LoginForm } from "./LoginForm";
 import './login.css'
 
 
+
 gsap.registerPlugin(ScrollTrigger);
 
 export const LoginScreen = () => {
@@ -46,25 +47,20 @@ export const LoginScreen = () => {
         trigger: flower.current,
         start: "top 80%", // Comienza la animación cuando el subtitle esté 80% visible
       },
-    });
+    }); 
   }, []); 
 
   return (
     <div className="log">
     <div className="login-screen"> 
-      <div className="flower"><img src="frontend/public/images/flor.webp" alt="" /></div>
-
-      {/conjunto de textos/}
+    <div ref={flower} className="flower"></div>
       <div className="title-subtitle">
         <h2 ref={titleRef}>BlogNest</h2>
         <h6 ref={subtitleRef}>BlogNest facilita la gestión y el intercambio de ideas y experiencias en línea.</h6>
       </div>
-
-      {/* formulario*/}
       <div className="form">
           <LoginForm />
       </div>
-
     </div>
     <Error />
     </div>
