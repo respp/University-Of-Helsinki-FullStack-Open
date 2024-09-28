@@ -3,7 +3,7 @@
 h6 {
   color: white;
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: .9rem;
   letter-spacing: 1.3px;
 }
 
@@ -20,22 +20,27 @@ h6 {
 
 .flower {
   position: absolute; /* Asegura que se coloque en una posición absoluta */
-  bottom: 0;
-  left: 0;
+  /* bottom: 0;
+  left: 0; */
   width: 80vw; /* Ocupa todo el ancho de la pantalla */
+  /* height: auto; Ocupa toda la altura de la pantalla */
   height: 80vh; /* Ocupa toda la altura de la pantalla */
   background-image: url("/public/images/flor.webp");
   background-size: contain; /* Ajusta la imagen dentro del div sin recortarla */
   background-position: center; /* Centra la imagen */
   background-repeat: no-repeat; /* Evita la repetición de la imagen */
   opacity: 1;
-  transform: translate(-16vw, 10vw);
+  bottom: -20%;
+  left: -13%;
+  /* bottom: -150px;
+  left: -130px; */
+  /* transform: translate(-15%, 14vh); */
 }
 
 .title-subtitle {
   position: absolute;
-  left: 15vw;
-  top: 10vw;
+  left: 16vw;
+  top: 6vw;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -44,7 +49,7 @@ h6 {
 }
 
 .title-subtitle h2 {
-  font-size: 6rem;
+  font-size: 5rem;
   font-family: "Avenir Bold";
 }
 
@@ -79,6 +84,25 @@ h6 {
   font-size: 0.8rem;
   margin-bottom: 30px;
 }
+
+.password{
+  font-size: .7rem;
+}
+
+.password-error {
+  background-color: #2D1926;
+  color: #a33d36d0;
+}
+
+.p-error{
+  position: relative;
+  top: -20px;
+  margin-left: 15px;  
+  color: #a33d36d0;
+  font-size: .8rem;
+  letter-spacing: 1.5px;
+}
+
 
 .two-btns {
   width: 100%;

@@ -2,14 +2,17 @@ import { Form, Button } from 'react-bootstrap';
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login, createAccount } from "../../reducers/userReducer";
-import { error } from "../../reducers/errorMessageReducer";
+import { errorForm } from "../../reducers/errorMessageReducer";
 import './login.css'
 
 
-export const LoginForm = () => {
+export const LoginForm = ({ setIsRegistering }) => {
     const dispatch = useDispatch()
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [passwordError, setPasswordError] = useState(true) //false
+    const [error, setError] = useState('wrong username or password') //null
+
   
     const handleLogin = async (e) => {
       e.preventDefault();
@@ -19,15 +22,23 @@ export const LoginForm = () => {
           setUsername("");
           setPassword("");
       } catch (err) {
-        console.error('el error es: ',err)
-        dispatch(error('wrong username or password', 5))
+        let errorData = err.response.data.error || 'invalid username or password'
+        console.error('el error es: ',err.response.data.error)
+        // dispatch(errorForm('wrong username or password', 5))
+        setError(`${ errorData }`)
+        setPasswordError(true);
+        setTimeout(() => {
+          setPasswordError(false);
+          setError(null)
+        }, 2000);
+
       }
     }
 
     const handleCreateAccount = async (e) => {
       e.preventDefault();
       const name = username
-      console.log("Creando cuenta con ", username, password);
+      console.log("Creando cuenta con ", username, password, name);
       try {
           await dispatch(createAccount({ username, password, name })); // Asegúrate de tener la acción adecuada
           setUsername("");
@@ -51,10 +62,13 @@ export const LoginForm = () => {
       </Form.Group>
         </div>
         <div>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3 group-error" controlId="formBasicPassword">
         <Form.Label className='label-form'>Password</Form.Label>
         <Form.Control type="password" value={password} placeholder="************" name="Password" onChange={({ target }) => setPassword(target.value)}
-            data-testid="password" className='control'/>
+            data-testid="password"  className={`control password ${passwordError ? 'password-error' : ''}`} />
+            {
+              passwordError && <p className='p-error'>{error}</p>
+            }
       </Form.Group>
         </div>
         <div className="two-btns">
