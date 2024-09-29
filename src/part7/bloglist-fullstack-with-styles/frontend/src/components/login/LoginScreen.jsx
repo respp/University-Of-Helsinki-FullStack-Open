@@ -3,9 +3,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Error } from "../ErrorMessage";
 import { LoginForm } from "./LoginForm";
+import { RegisterForm } from "./RegisterForm";
 import './login.css'
-
-
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -75,8 +74,8 @@ export const LoginScreen = () => {
       <div className="form" ref={form}>
           { 
             isRegistering
-              ? <LoginForm setIsRegistering={ setIsRegistering } />
-              : <RegisterForm setIsRegistering={ setIsRegistering } />
+              ? <RegisterForm setIsRegistering={ setIsRegistering } isRegistering={ isRegistering } />
+              : <LoginForm setIsRegistering={ setIsRegistering } isRegistering={ isRegistering } />
           }
       </div>
     </div>

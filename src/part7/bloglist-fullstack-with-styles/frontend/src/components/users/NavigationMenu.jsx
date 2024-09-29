@@ -15,15 +15,21 @@ const NavigationMenu = () => {
   return (
     <Navbar expand="lg" className="custom-navbar" data-bs-theme="dark">
       <Container className="custom-container">
+        <img src="/public/images/icon.png" className="logo" alt="Logo" />
         <Navbar.Brand className="nav-title" href="/">BlogNest</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">Blogs</Nav.Link>
-            <Nav.Link as={Link} to="/users">Users</Nav.Link>
+            <Nav.Link as={Link} to="/">BLOGS</Nav.Link>
+            <Nav.Link as={Link} to="/users">USERS</Nav.Link>
             <div className="logged-in">
-            <Nav.Link>{user.username} logged in</Nav.Link> 
-            <Nav.Link as='p'><button className="btn-logged" onClick={handleLogout}>logout</button></Nav.Link>
+            <Nav.Link>{user.username}</Nav.Link> 
+            <Nav.Link as='p' className="sesion">
+              <button className="btn-logged" onClick={handleLogout}>
+                cerrar sesión
+                <img src="/public/images/logout.png" className="logout" alt="logout" />
+              </button>
+            </Nav.Link>
             </div>
           </Nav>
         </Navbar.Collapse>

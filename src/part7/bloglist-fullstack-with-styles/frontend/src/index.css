@@ -1,6 +1,6 @@
 :root {
   --secondary-gray: #2a3035;
-  --second-title:#aeb5ba;
+  --second-title:#aeb5baee;
   --link-color:#2c5b8d;
   --primary-color: #0D1322;
   --secondary-color: #12192ce3;
@@ -17,6 +17,11 @@
   src: url('/fonts/AvenirNext-Bold.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Bebas';
+  src: url('/fonts/BebasNeue-Regular.ttf') format('truetype');
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -25,6 +30,11 @@ body {
   background-color: #f4f4f4;
   font-family: 'Avenir Medium', sans-serif;
   
+}
+
+
+.bg-blogs{
+  background-color: var(--secondary-color);
 }
 
 a {

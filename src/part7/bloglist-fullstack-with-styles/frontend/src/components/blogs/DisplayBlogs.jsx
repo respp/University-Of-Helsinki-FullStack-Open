@@ -1,50 +1,71 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRef } from 'react';
-import { NewBlogForm } from './NewBlogForm';
 import Togglable from "../Togglable";
 import { Notification } from "../Notification";
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Error } from '../ErrorMessage';
-import { Card } from 'react-bootstrap';
+import { Button, Card, Nav } from 'react-bootstrap';
+import Loading from './Loading'
 import './blog.css'
 
 
 export const DisplayBlogs = () => {
     const blogs = useSelector(state => state.blogs)
+    const user = useSelector(state => state.user)
 
-    console.log(blogs)
+    const [loading, setLoading] = useState(true); // Estado de carga
 
+    useEffect(() => {
+      const fetchBlogs = async () => {
+        setLoading(true); // Inicia el estado de carga
+        // Simula un retraso de 1 segundo para simular la carga de CSS
+        const delay = new Promise(resolve => setTimeout(resolve, 500));
 
+        try {
+          await delay; // Espera el retraso
+          // const fetchedBlogs = await blogService.getAll();
+          // Aquí podrías ordenar los blogs si es necesario
+          // dispatch(setBlogs(sortedBlogs));
+        } catch (error) {
+          // console.error('Error fetching blogs:', error);
+        } finally {
+          setLoading(false); // Finaliza el estado de carga
+        }
+      };
 
-    const blogFormRef = useRef();
+      fetchBlogs();
+    }, []); // Ejecuta el efecto solo una vez al montar el componente
+
+    // if (loading) {
+    //   return <Loading></Loading>; // Mensaje de carga
+    // }
 
     console.log(blogs)
 
   return (
     <div data-testid="logged" className='bg-blogs'>
-    <h1>Blogs</h1>
+    <img src="/public/images/cover.webp" className="cover" alt="cover" />
+    <div className="question">
+      <p className='text1'>Hola {user.name},</p>
+      <p className='text2'>¿QUÉ TIENES GANAS DE CONTAR HOY?</p>
+      <Nav.Link as={Link} className='btn escribir-btn' variant='outline-primary' type="button" to="/users/new-blog">ESCRIBIR NUEVO BLOG</Nav.Link>
+    </div>
       <Notification  />
-      <Togglable
-        firstButtonLabel="New Blog"
-        secondButtonLabel="cancel"
-        ref={blogFormRef}
-      >
-        <NewBlogForm />
-      </Togglable>
+
       <Error />
       <div data-testid="blogs">
         {blogs.map((blog) => (
-            <Card key={blog.id}>
-              <Card.Body className='blog'>
+            <Card key={blog.id} className='blog'>
+              <Card.Body>
                 <blockquote className="blockquote mb-0">
                 <Link to={`/blogs/${blog.id}`}>
                   <p>
                     {' '}{blog.title}{' '}
                   </p>
                 </Link>
-                  <footer className="blockquote-footer">
-                    By <cite title="Source Title">{blog.author}</cite>
+                  <footer className="blockquote-footer" style={{ color: '#A8E0FF' }}>
+                    <cite title="Source Title">By {blog.author}</cite>
                   </footer>
                 </blockquote>
               </Card.Body>

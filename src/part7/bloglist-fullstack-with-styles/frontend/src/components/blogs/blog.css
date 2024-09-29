@@ -54,17 +54,65 @@
 
 /* ******************* DISPLAY BLOG ******************* */
 
+.question {
+  position: absolute;
+  top: 14%; /* Ajusta según lo necesites */
+  left: 30%;
+  transform: translateX(-50%);
+  color: white; /* Cambia el color según tu diseño */
+  text-align: center; /* Centra el texto */
+  z-index: 1; /* Asegúrate de que esté por encima de la imagen */
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.question .text1 {
+  text-align: left;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.question .text2 {
+  font-size: 3.6rem;
+  text-align: left;
+  font-family: 'Bebas';
+}
+
+.escribir-btn{ /* usado en 2 componentes, CommentForm y LoginForm */
+  border: 2px solid #70CDEE;
+  font-family: 'Avenir Bold';
+  box-shadow: 
+  0px 0px 5px 2px #1d346f,
+  inset 0px 0px 5px 2px #1d346f;
+}
+
+.escribir-btn:hover{
+  text-decoration: none;
+}
+
 .blog {
     border: solid 1px var(--primary-color);
     width: auto;
-    padding: 10px;
-    margin: 10px;
+    padding: 5px;
+    margin: 19px;
     border-radius: 6px;
+    background-color: #19233A;
+  }
+
+  .blog p{
+    color: white;
+  }
+
+  .blog cite{
+    color: #A8E0FF;
   }
 
   .bg-blogs{
     background-color: var(--secondary-color);
-    height: 100vh;
+    /* height: 100%; */
   }
   
   .bg-blogs h1{
@@ -73,6 +121,11 @@
     letter-spacing: 1px;
   }
 
+  .cover{
+    width: 100%;
+    /* height: 55vh; */
+    height: auto;
+  }
 /* ******************* COMMENT FORM ******************* */
 
   .new-control{
@@ -86,24 +139,70 @@
 
 /* ******************* NEW BLOG FORM ******************* */
 
-.new-blog{
-    width: 100%;
+.newblog{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-new-blog{
+    background-color: #172138;
+    padding: 60px;
+    border-radius: 20px;
+    width: 70%;
+    height: 80%;
     display: flex;
+    flex-direction: column;
+  }
+
+  .grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; /* Espacio opcional entre columnas */
+  }
+
+  .col-1{
+    width: 90%;
+    display: block;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .col-2{
+    width: 100%;
+    display: block;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
   
-  .form-new-blog{
-    background-color: var(--primary-color);
-    padding: 20px;
-    border-radius: 20px;
-    width: 40%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  .form-new-blog input{
+    background-color: #202A41;
+    width: 100%;
+    height: 40px;
   }
-  
+
+  .p-blog-added{
+    color: #93fbe6a0;
+    font-size: 1rem;
+    letter-spacing: 1.7px;
+    padding: 0 0 0 8px;
+    margin: 0;
+  }
+
+  .form-new-blog .input-description{
+    height: 75%;
+    width: 100%;
+    padding: 10px; /* Añade un pequeño relleno para evitar que el texto toque los bordes */
+    text-align: left;
+    vertical-align: top; /* Alinea el texto desde arriba */
+    resize: none;
+    display: flex;
+    justify-content: flex-start;
+  }
+
   .form-new-blog label{
     color: #b6b6b6;
     letter-spacing: 2px;
@@ -113,10 +212,10 @@
     border: 2px solid #1f637b;
     height: 30px;
     width: 100px;
-    display: flex;
+    /* display: flex;
     justify-content: center;
     margin: auto;
-    align-items: center;
+    align-items: center; */
     border-radius: 10px;
     font-size: 1rem;
     padding: 5px;
@@ -127,3 +226,13 @@
     background-color: #0D1322;
     color: #dfdfdf;
   }
+
+/* ******************* LOADING ******************* */
+
+.spinner{
+  width: 100%;
+  padding-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

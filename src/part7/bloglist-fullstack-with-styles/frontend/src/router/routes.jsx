@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { UserBlogs } from "../components/UserBlogs";
 import { User } from '../components/users/User'
 import Blog from "../components/blogs/Blog";
-
+import { NewBlog } from "../components/blogs/NewBlog";
 
 const AppRoutes = () => {
   const user = useSelector(state => state.user)
@@ -26,6 +26,12 @@ const AppRoutes = () => {
         <>
             <User />
             <DisplayUsers />
+        </>
+        } />
+      <Route path="/users/new-blog" element={
+        <>
+            <User />
+            <NewBlog />
         </>
         } />
       <Route path="/users/:id" element={

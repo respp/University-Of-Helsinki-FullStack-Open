@@ -99,7 +99,7 @@ h6 {
   top: -20px;
   margin-left: 15px;  
   color: #a33d36d0;
-  font-size: .8rem;
+  font-size: .6rem;
   letter-spacing: 1.5px;
 }
 
@@ -110,11 +110,17 @@ h6 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   margin-top: 30px;
+  gap: 2px;
 }
 
 .login-btn {
   border: none;
   background-color: #17223b;
+}
+
+.sugerencia{
+  color: #506189;
+  margin: 0;
+  font-size: .8rem;
 }

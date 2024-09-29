@@ -1,9 +1,5 @@
 /* ******************* DISPLAY USERS ******************* */
 
-.bg-blogs{
-    background-color: var(--secondary-color);
-    height: 100vh;
-  }
   
   .bg-blogs h1{
     padding: 10px;
@@ -47,6 +43,18 @@
 
 /* ******************* NAVIGATION MENU ******************* */
 
+.logo{
+  width: 25px;
+  margin-bottom: 6px;
+  height: 25px;
+}
+
+.logout{
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+}
+
 nav {
     margin-bottom: 1em;
   }  
@@ -69,17 +77,31 @@ nav {
   nav ul li a:hover {
     text-decoration: underline;
   }
+
+  .navbar.custom-navbar>.container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100%;
+}
+
   
 
 .custom-navbar {
+  display: flex;
     color: red;
     margin: 0;
     padding: 0;
     background-color: var(--primary-color);
     width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
+    /* justify-content: space-between; Change to space-between */
+    justify-content: center;
   }
 
   .custom-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -87,33 +109,49 @@ nav {
 
   .nav-title{
     font-family: 'Avenir Bold';
-    font-size: 1.5rem;
-    margin: 10px 15%;
-    margin-bottom: 25px;
+    font-size: 1.3rem;
+    letter-spacing: .5px;
+    margin: 0 0 0 5px;
+    /* margin: 10px 15%;
+    margin-bottom: 25px; */
   }
 
   .me-auto{
-    margin: 10px 50px 10px 10px;
+    /* margin: 10px 50px 10px 10px; */
+
     display: flex;
-    width: 100%;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: .8rem;
+    letter-spacing: 1px;
+    width: 100%; 
+    /* margin-left: auto;
+    margin-right: 10px;  */
   }
 
   .logged-in{
     display: flex;
+    align-items: center;
+  }
+
+  .sesion{
+    display: flex;
+    justify-content: center;
+    margin: 0;
   }
 
   .btn-logged{
     border: none;
     height: 30px;
-    width: 100px;
+    opacity: .8;
+    width: 110px;
     display: flex;
     justify-content: center;
-    margin: auto;
+    /* margin: auto; */
     align-items: center;
     border-radius: 10px;
-    font-size: 1rem;
-    padding: 5px;
+    font-size: .8rem;
+    /* padding: 5px; */
     font-family: 'Avenir Medium';
     background-color: #1c2a4f;
     color: #dfdfdf;
