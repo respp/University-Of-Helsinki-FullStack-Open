@@ -122,8 +122,8 @@ export const RegisterForm = ({ setIsRegistering, isRegistering }) => {
         </div>
         <div className="two-btns">
             <Button className='btn create-btn' variant='outline-primary' type="submit" onClick={handleCreateAccount}>CREAR CUENTA</Button>{''}
-            <p className='sugerencia'>¿Ya eres usuario de Blognest?</p>
             <Button className='btn login-btn' variant='outline-primary' type="button" onClick={()=> setIsRegistering(false)}>INICIAR SESION</Button>{''}
+            <p className='sugerencia'>¿Ya eres usuario de Blognest?</p>
         </div>
       </Form>
   )

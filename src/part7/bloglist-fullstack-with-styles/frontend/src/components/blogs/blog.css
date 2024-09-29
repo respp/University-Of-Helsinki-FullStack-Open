@@ -102,12 +102,24 @@
     background-color: #19233A;
   }
 
+  .blog-body{
+    display: flex;
+    justify-content: space-between;
+  }
+
   .blog p{
     color: white;
   }
 
   .blog cite{
     color: #A8E0FF;
+  }
+
+  .read-btn {
+    border: none;
+    background-color: #233B65;
+    padding: 15px;
+    width: 100%;
   }
 
   .bg-blogs{

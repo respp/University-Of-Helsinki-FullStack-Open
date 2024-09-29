@@ -37,9 +37,9 @@ export const DisplayBlogs = () => {
       fetchBlogs();
     }, []); // Ejecuta el efecto solo una vez al montar el componente
 
-    // if (loading) {
-    //   return <Loading></Loading>; // Mensaje de carga
-    // }
+    if (loading) {
+      return <Loading></Loading>; // Mensaje de carga
+    }
 
     console.log(blogs)
 
@@ -57,17 +57,23 @@ export const DisplayBlogs = () => {
       <div data-testid="blogs">
         {blogs.map((blog) => (
             <Card key={blog.id} className='blog'>
-              <Card.Body>
-                <blockquote className="blockquote mb-0">
-                <Link to={`/blogs/${blog.id}`}>
-                  <p>
-                    {' '}{blog.title}{' '}
-                  </p>
-                </Link>
-                  <footer className="blockquote-footer" style={{ color: '#A8E0FF' }}>
-                    <cite title="Source Title">By {blog.author}</cite>
-                  </footer>
-                </blockquote>
+              <Card.Body className='blog-body'>
+                <div className="blog-textos">
+                    <blockquote className="blockquote mb-0">
+                    <Link to={`/blogs/${blog.id}`}>
+                      <p>
+                        {' '}{blog.title}{' '}
+                      </p>
+                    </Link>
+                      <footer className="blockquote-footer" style={{ color: '#A8E0FF' }}>
+                        <cite title="Source Title">By {blog.author}</cite>
+                      </footer>
+                    </blockquote>
+                </div>
+                <div className="blog-icons">
+                 <Button className='btn read-btn' variant='outline-primary' type="button">LEER BLOG</Button>{''}
+                    
+                </div>
               </Card.Body>
             </Card>
         ))}

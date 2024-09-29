@@ -61,8 +61,8 @@ export const LoginForm = ({ setIsRegistering, isRegistering }) => {
         </div>
         <div className="two-btns">
             <Button className='btn create-btn' variant='outline-primary' type="submit" onClick={handleLogin}>INICIAR SESION</Button>{''}
-            <p className='sugerencia'>¿Es tu primera vez en Blognest?</p>
             <Button className='btn login-btn' variant='outline-primary' type="button" onClick={() => setIsRegistering(true)}>REGISTRATE</Button>{''}
+            <p className='sugerencia'>¿Es tu primera vez en Blognest?</p>
         </div>
       </Form>
   )

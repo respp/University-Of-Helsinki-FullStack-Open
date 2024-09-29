@@ -111,7 +111,7 @@ h6 {
   justify-content: center;
   align-items: center;
   margin-top: 30px;
-  gap: 2px;
+  gap: 7px;
 }
 
 .login-btn {
@@ -123,4 +123,5 @@ h6 {
   color: #506189;
   margin: 0;
   font-size: .8rem;
+  margin-top: -3px;
 }
