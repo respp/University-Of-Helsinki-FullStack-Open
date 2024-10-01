@@ -17,6 +17,15 @@ const blogSlice = createSlice({
             return state.map(blog => blog.id !== action.payload ? blog : likedBlog
               ).sort((a,b) => b.likes-a.likes)
         },
+        restLikeTo(state, action){
+            const blogToDislike = state.find(blog => blog.id === action.payload)
+            const dislikedBlog = {
+                ...blogToDislike,
+                likes: Math.max(blogToDislike.likes - 1, 0)
+            }
+            return state.map(blog => blog.id !== action.payload ? blog : dislikedBlog
+              ).sort((a,b) => b.likes-a.likes)
+        },
         removeABlog(state, action){
             const idBlogToRemove = action.payload
             return state.filter(blog => blog.id !== idBlogToRemove)
@@ -58,6 +67,13 @@ export const likeABlog = (blogObject, blogId) => {
     }
 }
 
+export const dislikeABlog = (blogObject, blogId) => {
+    return async dispatch => {
+        const updatedBlog = await blogService.update({ ...blogObject, likes: Math.max(blogObject.likes - 1, 0) }, blogId)
+        dispatch(restLikeTo(updatedBlog.id))
+    }
+}
+
 export const commentBlog = (id, comment) => {
     return async dispatch => {
         const addComment = await blogService.addComment(id, comment)
@@ -74,7 +90,7 @@ export const deleteBlog = id => {
 }
 
 //export the actions
-export const { appendBlog, likeTo, setBlogs, removeABlog, commentTo } = blogSlice.actions
+export const { appendBlog, likeTo, restLikeTo, setBlogs, removeABlog, commentTo } = blogSlice.actions
 
 //export the reducer
 export default blogSlice.reducer

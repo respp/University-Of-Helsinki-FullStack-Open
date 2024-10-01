@@ -60,8 +60,8 @@ export const LoginForm = ({ setIsRegistering, isRegistering }) => {
       </Form.Group>
         </div>
         <div className="two-btns">
-            <Button className='btn create-btn' variant='outline-primary' type="submit" onClick={handleLogin}>INICIAR SESION</Button>{''}
-            <Button className='btn login-btn' variant='outline-primary' type="button" onClick={() => setIsRegistering(true)}>REGISTRATE</Button>{''}
+            <Button className='butn create-btn' variant='outline-primary' type="submit" onClick={handleLogin}>INICIAR SESION</Button>{''}
+            <Button className='butn login-btn' variant='outline-primary' type="button" onClick={() => setIsRegistering(true)}>REGISTRATE</Button>{''}
             <p className='sugerencia'>¿Es tu primera vez en Blognest?</p>
         </div>
       </Form>

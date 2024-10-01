@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { useRef } from 'react';
-import Togglable from "../Togglable";
 import { Notification } from "../Notification";
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Error } from '../ErrorMessage';
-import { Button, Card, Nav } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 import Loading from './Loading'
 import './blog.css'
+import { EveryBlog } from './EveryBlog';
 
 
 export const DisplayBlogs = () => {
@@ -24,11 +23,7 @@ export const DisplayBlogs = () => {
 
         try {
           await delay; // Espera el retraso
-          // const fetchedBlogs = await blogService.getAll();
-          // Aquí podrías ordenar los blogs si es necesario
-          // dispatch(setBlogs(sortedBlogs));
         } catch (error) {
-          // console.error('Error fetching blogs:', error);
         } finally {
           setLoading(false); // Finaliza el estado de carga
         }
@@ -41,42 +36,24 @@ export const DisplayBlogs = () => {
       return <Loading></Loading>; // Mensaje de carga
     }
 
-    console.log(blogs)
+    // console.log(blogs)
+
 
   return (
     <div data-testid="logged" className='bg-blogs'>
-    <img src="/public/images/cover.webp" className="cover" alt="cover" />
+    <img src="/public/images/cover.png" className="cover" alt="cover" />
     <div className="question">
       <p className='text1'>Hola {user.name},</p>
       <p className='text2'>¿QUÉ TIENES GANAS DE CONTAR HOY?</p>
-      <Nav.Link as={Link} className='btn escribir-btn' variant='outline-primary' type="button" to="/users/new-blog">ESCRIBIR NUEVO BLOG</Nav.Link>
+      <Nav.Link as={Link} className=' escribir-btn' variant='outline-primary' type="button" to="/users/new-blog">ESCRIBIR NUEVO BLOG</Nav.Link>
     </div>
       <Notification  />
 
       <Error />
       <div data-testid="blogs">
-        {blogs.map((blog) => (
-            <Card key={blog.id} className='blog'>
-              <Card.Body className='blog-body'>
-                <div className="blog-textos">
-                    <blockquote className="blockquote mb-0">
-                    <Link to={`/blogs/${blog.id}`}>
-                      <p>
-                        {' '}{blog.title}{' '}
-                      </p>
-                    </Link>
-                      <footer className="blockquote-footer" style={{ color: '#A8E0FF' }}>
-                        <cite title="Source Title">By {blog.author}</cite>
-                      </footer>
-                    </blockquote>
-                </div>
-                <div className="blog-icons">
-                 <Button className='btn read-btn' variant='outline-primary' type="button">LEER BLOG</Button>{''}
-                    
-                </div>
-              </Card.Body>
-            </Card>
-        ))}
+        {blogs.map((blog) => 
+            <EveryBlog blog={blog} key={blog.id} />
+        )}
       </div>
     </div>
   )

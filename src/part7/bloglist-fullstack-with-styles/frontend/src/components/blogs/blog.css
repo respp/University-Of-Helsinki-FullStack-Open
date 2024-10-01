@@ -3,17 +3,123 @@
 .specific-blog{
     display: flex;
     flex-direction: column;
-    padding-left: 100px;
+    align-items: center;
+
+
   }
 
   .blog-content{
-    padding: 5px 100px  5px 5px;
-    color: #aab5e4;
-    background-color: #19274a;
-    width: 40%;
-    border-radius: 14px;
-    border: solid 1px var(--primary-color);
+      background-color: #172138;
+      /* padding: 60px; */
+      border-radius: 20px;
+      width: 90%;
+      height: 90%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
   }
+
+  .col-blog1 h2{
+    font-size: 1.9rem;
+    font-family: 'Avenir Bold';
+  }
+
+  .cite-blog{
+    color: white;
+    margin: 23px 0;
+    letter-spacing: .2px;
+    font-size: 1.1rem;
+  }
+
+  .description{
+    color: #A9DFFF;
+    font-size: .9rem;
+    /* width: 90%; */
+    width: 10%;
+  }
+
+
+  .col-blog1{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .col-blog2{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  .cerrar{
+    width: 30px;
+    height: 30px;
+  }
+
+  .fijo {
+    position: sticky; /* Mantener fijo dentro de su contenedor */
+    display: flex;
+    flex-direction: column;
+    height: 86vh;
+    justify-content: space-between;
+    align-items: flex-end;
+    bottom: 0; /* Fijo en la parte superior de su contenedor */
+    right: 0;
+    background-color: rgba(197, 134, 134, 0.173); /* Fondo semi-transparente */
+    padding: 10px; /* Espacio interno */
+    z-index: 1000; /* Asegúrate de que esté sobre otros elementos */
+    row-gap: 10px;
+  }
+
+  .content{
+    /* position: sticky; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    row-gap: 10px;
+  }
+
+
+  .likeAndComments{
+    display: flex;
+    column-gap: 10px;
+  }
+
+  .blog-icon{
+    width: 40px;
+    height: 45px;
+    background-color: rgba(255, 0, 0, 0.162);
+    display: flex;
+    flex-direction: column;
+    padding: 26px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+  }
+
+  .bgc-comment{
+    background-color: #1F2E49;
+  }
+
+  .remove-btn {
+    border-radius: 20px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .6rem;
+    letter-spacing: 2px;
+    color: white;
+    
+    border: none;
+    background-color: #233B65;
+    padding: 15px 15px 13px 15px;
+    font-family:'Avenir Bold';
+  }
+
+  .remove-btn:hover {
+    background-color: #324a74;
+  }
+
 
   .custom-link {
     color: #007bff; /* Color del enlace */
@@ -64,7 +170,7 @@
   z-index: 1; /* Asegúrate de que esté por encima de la imagen */
   display: flex;
   flex-direction: column;
-  width: 35%;
+  width: 30%;
   justify-content: flex-start;
   text-align: left;
 }
@@ -82,15 +188,29 @@
 }
 
 .escribir-btn{ /* usado en 2 componentes, CommentForm y LoginForm */
+  margin: 5px;
+  border-radius: 20px;
+  height: 31px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .6rem;
+  letter-spacing: 2px;
+  color: white;
+
   border: 2px solid #70CDEE;
   font-family: 'Avenir Bold';
   box-shadow: 
   0px 0px 5px 2px #1d346f,
   inset 0px 0px 5px 2px #1d346f;
+  width: 70%;
 }
 
 .escribir-btn:hover{
   text-decoration: none;
+  background-color: #41b1da1b;
+  border-color: #79a0c3;
+
 }
 
 .blog {
@@ -109,17 +229,67 @@
 
   .blog p{
     color: white;
+    font-size: 1.1rem;
   }
 
   .blog cite{
     color: #A8E0FF;
+    font-family: 'Avenir Medium';
+    font-style: normal;
+    font-size: .8rem;
+    letter-spacing: .7px;
+  }
+
+  .blog-icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 15px;
+
   }
 
   .read-btn {
+    border-radius: 20px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .6rem;
+    letter-spacing: 2px;
+    color: white;
+    
+    width: 100%;
     border: none;
     background-color: #233B65;
-    padding: 15px;
-    width: 100%;
+    padding: 15px 15px 13px 15px;
+    font-family:'Avenir Bold';
+  }
+
+  .read-btn:hover {
+    background-color: #324a74;
+  }
+
+  .like{
+    width: 24px;
+    height: 22px;
+    margin-top: 10px;
+
+  }
+
+  .iconAndImage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .number-icon{
+    margin: 0;
+    padding-top: 4px;
+    font-size: .7rem;
+    color: white;
+    font-family:'Avenir Bold';
   }
 
   .bg-blogs{
@@ -138,6 +308,8 @@
     /* height: 55vh; */
     height: auto;
   }
+
+
 /* ******************* COMMENT FORM ******************* */
 
   .new-control{
@@ -155,6 +327,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
 }
 
 .form-new-blog{
@@ -213,6 +386,7 @@
     resize: none;
     display: flex;
     justify-content: flex-start;
+    background-color: #202A41;
   }
 
   .form-new-blog label{

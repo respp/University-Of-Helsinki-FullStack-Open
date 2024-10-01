@@ -3,7 +3,7 @@
   --second-title:#aeb5baee;
   --link-color:#2c5b8d;
   --primary-color: #0D1322;
-  --secondary-color: #12192ce3;
+  --secondary-color: #11192A;
   --third-color: #1B2337;
 }
 
@@ -35,6 +35,8 @@ body {
 
 .bg-blogs{
   background-color: var(--secondary-color);
+  height: 100%;
+  width: 100%;
 }
 
 a {
@@ -59,7 +61,7 @@ a:hover {
   outline: none; /* Quita el borde predeterminado */
 }
 
-.btn{
+.butn{
   margin: 5px;
   border-radius: 20px;
   height: 31px;
@@ -72,12 +74,12 @@ a:hover {
   width: 70%;
 }
 
-.btn:hover{
+.butn:hover{
   background-color: #1b263e;
   border-color: #79a0c3;
 }
 
-.btn:active{
+.butn:active{
   background-color: #1b263e;
   border-color: #79a0c3;
 }
