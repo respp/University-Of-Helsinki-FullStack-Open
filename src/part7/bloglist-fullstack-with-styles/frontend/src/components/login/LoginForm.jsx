@@ -8,7 +8,7 @@ import './login.css'
 export const LoginForm = ({ setIsRegistering, isRegistering }) => {
 
   useEffect(() => {
-    console.log(`${ isRegistering } este es mi valor`)
+    // console.log(`${ isRegistering } este es mi valor`)
   }, [isRegistering])
   
     const dispatch = useDispatch()
@@ -27,8 +27,7 @@ export const LoginForm = ({ setIsRegistering, isRegistering }) => {
           setPassword("");
       } catch (err) {
         let errorData = err.response.data.error || 'invalid username or password'
-        console.error('el error es: ',err.response.data.error)
-        // dispatch(errorForm('wrong username or password', 5))
+        // console.error('el error es: ',err.response.data.error)
         setError(`${ errorData }`)
         setPasswordError(true);
         setTimeout(() => {

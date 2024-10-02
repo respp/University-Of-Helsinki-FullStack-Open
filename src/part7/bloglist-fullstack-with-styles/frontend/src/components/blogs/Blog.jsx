@@ -1,70 +1,3 @@
-// import { useDispatch, useSelector } from "react-redux";
-// import { likeABlog, deleteBlog } from "../../reducers/blogReducer";
-// import { useParams } from "react-router-dom";
-// import Togglable from "../Togglable";
-// import { CommentForm } from "./CommentForm";
-// import { Button } from 'react-bootstrap';
-// import './blog.css'
-
-// const Blog = () => {
-//   const { id } = useParams();
-//   const blog = useSelector((state) =>
-//     state.blogs.find(blog => blog.id === id)
-//   )
-//   const dispatch = useDispatch()
-//   // const commentRef = useRef()
-
-//   console.log(blog)
-//   if (!blog) return <div>Blog not found</div>
-
-//   const like = blog => dispatch(likeABlog(blog, blog.id))
-
-//   const removeBlog = blog => {
-//     const confirm = window.confirm(`Remove ${blog.title} by ${blog.author}?`);
-//     if (confirm) {
-//       dispatch(deleteBlog(blog.id))
-//     }
-//   }  
-
-//   console.log(blog.comments)
-//   return (
-//     <div className="specific-blog">
-//       <div className="blog-content">
-//       <h1>&quot;{blog.title}&quot; by {blog.author}</h1>
-//           Url: <a href={blog.url} className="custom-link">{blog.url}</a> <br />
-//           Likes: {blog.likes}
-//           <Button variant="outline-light" onClick={()=>like(blog)} className="btn-like">Like</Button>{' '}<br />
-//           <Button variant="outline-danger" onClick={()=>removeBlog(blog)} className="btn-remove">
-//             remove
-//           </Button>{' '}
-//           <p>added by {blog.user.name}</p>
-
-//           <h3>Comments</h3>
-
-//           <ul>
-//             {blog.comments.map((comment, i)=>
-//               <li key={i}>{comment}</li>
-//           )}
-//           </ul>
-//           <Togglable
-//           firstButtonLabel="Comment"
-//           secondButtonLabel="Cancel"
-//           // ref={commentRef}
-//         >
-//           <div>
-//           <CommentForm id={blog.id}/>
-
-//           </div>
-//         </Togglable>
-//       </div>
-
-//     </div>
-//   );
-// };
-
-// export default Blog;
-
-
 import { useDispatch, useSelector } from "react-redux";
 import { likeABlog, deleteBlog, dislikeABlog } from "../../reducers/blogReducer";
 import { Link, Navigate, useParams } from "react-router-dom";
@@ -76,17 +9,22 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { DisplayComments } from "./DisplayComments";
+import Swal from 'sweetalert2';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Blog = () => {
   const { id } = useParams();
   const blog = useSelector((state) =>
-    state.blogs.find(blog => blog.id === id)
-  )
-  // const user = useSelector(state => state.users)
+    state.blogs ? state.blogs.find(blog => blog.id === id) : null
+  );
 
-  // console.log(user)
+  if (!blog) return <div>Cargando...</div> 
+  
+  const user = useSelector(state => state.user)
+
+  console.log(user.username)
+  console.log(blog.user.username)
 const dispatch = useDispatch()
 
 const [showComments, setShowComments] = useState(false)
@@ -111,16 +49,17 @@ useEffect(() => {
   });
 }, []);
 
-  console.log(blog)
   if (!blog) return <div>Blog not found</div>
 
   useEffect(() => {
-    // Comprobar si el blog ya tiene un like guardado en localStorage
-    const likedBlogs = JSON.parse(localStorage.getItem('likedBlogs')) || [];
-    if (likedBlogs.includes(blog.id)) {
+    if (blog?.id) {
+      const likedBlogs = JSON.parse(localStorage.getItem('likedBlogs')) || [];
+      if (likedBlogs.includes(blog.id)) {
         setLikeIcon(true);
+      }
     }
-}, [blog.id]);
+  }, [blog]);
+  
 
   const like = blog => {
     const likedBlogs = JSON.parse(localStorage.getItem('likedBlogs')) || [];
@@ -139,12 +78,68 @@ useEffect(() => {
   }
 
   const removeBlog = blog => {
-    const confirm = window.confirm(`Remove ${blog.title} by ${blog.author}?`);
-    if (confirm) {
-      dispatch(deleteBlog(blog.id))
-      setRedirect(true)
+    console.log(blog)
+
+    if (!user || !blog) {
+      Swal.fire({
+        title: "Error",
+        text: "Datos no disponibles para eliminar el blog.",
+        icon: "error",
+        background: '#11192A',
+        color: '#fff',
+        confirmButtonColor: '#0D1322',
+      });
+      return;
     }
-  }  
+        // Verificar si el usuario actual es el creador del blog
+  if (user.username !== blog.user.username) {
+    // Mostrar una alerta indicando que no tiene permisos para borrar el blog
+    Swal.fire({
+      title: "No tienes permiso para eliminar este blog",
+      text: "Solo el autor puede eliminar este blog.",
+      icon: "error",
+      background: '#11192A',
+      iconColor: '#973535',
+      color: '#fff',
+      confirmButtonColor: '#0D1322',
+    });
+    return; // Salir de la función si no tiene permisos
+  }
+
+  // Si es el autor del blog, proceder con la eliminación
+  Swal.fire({
+    title: "Estas seguro?",
+    text: `No vas a poder revertirlo!`,
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Remover Blog",
+    cancelButtonText: "Cancelar",
+    background: '#253559',
+    iconColor: '#973535',
+    color: '#fff',
+    confirmButtonColor: '#0D1322',
+    cancelButtonColor: '#0D1322',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Llamar a la acción para eliminar el blog
+      dispatch(deleteBlog(blog.id));
+
+      Swal.fire({
+        title: "Deleted!",
+        text: "El blog ha sido eliminado.",
+        icon: "success",
+        color:"#fff",
+        background: '#11192A',
+        iconColor: '#96E0FF',
+        confirmButtonColor: '#0D1322',
+        confirmButtonText: 'Aceptar', 
+      });
+
+      // Redirigir después de la eliminación
+      setRedirect(true);
+    }
+  });
+  };
     // Desplazarse solo si se muestran los comentarios
     useEffect(() => {
       if (showComments) {
@@ -152,11 +147,13 @@ useEffect(() => {
       }
     }, [showComments]); // Este efecto se ejecuta cada vez que cambia showComments
 
-  console.log(blog.comments)
 
   if (redirect) {
     return <Navigate to='/' />;
   }
+
+  if (!blog) return <Navigate to='/' />;
+
 
   return (
     <div className="bg-blogs newblog">

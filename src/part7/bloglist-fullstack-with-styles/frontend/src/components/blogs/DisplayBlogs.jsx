@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Notification } from "../Notification";
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Error } from '../ErrorMessage';
 import { Nav } from 'react-bootstrap';
 import Loading from './Loading'
 import './blog.css'
 import { EveryBlog } from './EveryBlog';
+import { Footer } from './Footer';
 
 
 export const DisplayBlogs = () => {
@@ -47,14 +46,13 @@ export const DisplayBlogs = () => {
       <p className='text2'>¿QUÉ TIENES GANAS DE CONTAR HOY?</p>
       <Nav.Link as={Link} className=' escribir-btn' variant='outline-primary' type="button" to="/users/new-blog">ESCRIBIR NUEVO BLOG</Nav.Link>
     </div>
-      <Notification  />
 
-      <Error />
       <div data-testid="blogs">
         {blogs.map((blog) => 
             <EveryBlog blog={blog} key={blog.id} />
         )}
       </div>
+      <Footer />
     </div>
   )
 }

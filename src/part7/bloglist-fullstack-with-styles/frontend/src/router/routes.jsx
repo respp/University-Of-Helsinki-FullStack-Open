@@ -7,6 +7,7 @@ import { UserBlogs } from "../components/UserBlogs";
 import { User } from '../components/users/User'
 import Blog from "../components/blogs/Blog";
 import { NewBlog } from "../components/blogs/NewBlog";
+import { Footer } from "../components/blogs/Footer";
 
 const AppRoutes = () => {
   const user = useSelector(state => state.user)
@@ -26,12 +27,14 @@ const AppRoutes = () => {
         <>
             <User />
             <DisplayUsers />
+            <Footer />
         </>
         } />
       <Route path="/users/new-blog" element={
         <>
             <User />
             <NewBlog />
+            <Footer />
         </>
         } />
       <Route path="/users/:id" element={

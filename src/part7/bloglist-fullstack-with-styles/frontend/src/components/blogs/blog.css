@@ -126,6 +126,7 @@
   }
 
   .blog-icon{
+    color: #0D1322;
     width: 5px;
     height: 45px;
     background-color: rgba(255, 0, 0, 0.134);
@@ -485,6 +486,35 @@
     background-color: #0D1322;
     color: #dfdfdf;
   }
+
+/* ******************* FOOTER ******************* */
+
+.footer{
+  bottom: 0;
+  background-color: #202A44;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+}
+
+
+.footer p{
+  color: #9d9d9d;
+  font-size: .7rem;
+}
+
+.helsinki-icon{
+  width: 140px;
+  height: 73px;
+}
+
+.r-icon{
+    width: 34px;
+    height: 24px;
+}
 
 /* ******************* LOADING ******************* */
 

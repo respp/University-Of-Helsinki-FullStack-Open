@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Error } from "../ErrorMessage";
 import { LoginForm } from "./LoginForm";
 import { RegisterForm } from "./RegisterForm";
 import './login.css'
@@ -79,7 +78,6 @@ export const LoginScreen = () => {
           }
       </div>
     </div>
-    <Error />
     </div>
 
   );

@@ -55,7 +55,7 @@ export const NewBlog = () => {
                     id="author"
                     name="author"
                     required
-                    maxLength="50"
+                    maxLength="30"
                   />
                   <br />
                   <label htmlFor="url">Link </label>
