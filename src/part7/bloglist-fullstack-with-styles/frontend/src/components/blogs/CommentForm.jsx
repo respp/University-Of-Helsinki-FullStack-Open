@@ -24,7 +24,7 @@ export const CommentForm = ({ id }) => {
              className='new-control'
             required
           />
-          <button className='btn create-btn' type="submit">Send</button>
+          <button className='btn-create' type="submit">Send</button>
       </form>
     </div>
   )

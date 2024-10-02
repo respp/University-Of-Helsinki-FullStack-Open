@@ -30,7 +30,6 @@ export const EveryBlog = ({ blog }) => {
             setLikeIcon(true)
             localStorage.setItem('likedBlogs', JSON.stringify([...likedBlogs, blog.id]));
         } 
-
       }
 
 
@@ -39,18 +38,21 @@ export const EveryBlog = ({ blog }) => {
               <Card.Body className='blog-body'>
                 <div className="blog-textos">
                     <blockquote className="blockquote mb-0">
-                    <Link to={`/blogs/${blog.id}`}>
-                      <p>
-                        {' '}"{blog.title}"{' '}
-                      </p>
-                    </Link>
+                    {/* <Link to={`/blogs/${blog.id}`}> */}
+                    <p>
+                    {' '}"{`${blog.title.substring(0, 82)}${blog.title.length > 82 ? '...' : ''}`}"{' '} 
+                    </p>
+
+                    {/* </Link> */}
                       <footer className="blockquote-footer" style={{ color: '#A8E0FF' }}>
                         <cite title="Source Title cite">BY {blog.author.toUpperCase()}</cite>
                       </footer>
                     </blockquote>
                 </div>
                 <div className="blog-icons">
+                <Link to={`/blogs/${blog.id}`}>
                  <Button className='read-btn' variant='outline-primary' type="button">LEER BLOG</Button>{''}
+                </Link>
                  <div className="iconAndImage" onClick={()=>like(blog)}>
                   
                  {
@@ -65,7 +67,6 @@ export const EveryBlog = ({ blog }) => {
                  <img src="/public/images/comment-icon.png" className="like" alt="cover" /> <div className='number-icon'>{blog.comments.length}</div>
                  </div>
 
-                    
                 </div>
               </Card.Body>
             </Card>

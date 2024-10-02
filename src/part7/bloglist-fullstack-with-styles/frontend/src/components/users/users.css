@@ -11,7 +11,7 @@
     border-collapse: separate; /* Importante para aplicar el border-radius */
     border-spacing: 0; /* Quita el espacio entre celdas */
     width: 40%;
-    border: 1px solid #dee2e6; /* Mantén el estilo de borde de Bootstrap */
+    border: 1px solid #0D1323; /* Mantén el estilo de borde de Bootstrap */
     border-radius: 10px; /* Aquí se aplica el border-radius a la tabla */
   }
   
@@ -31,14 +31,21 @@
     border-bottom-right-radius: 10px; /* Redondeo de la esquina inferior derecha */
   }
   
-  td{
-    border: solid 1px rgb(156, 156, 156);
+  td {
     text-align: center;
+    padding: 5px;
+    background-color: #202A43;
+  }
+
+  table h4{
+    font-size: 1rem;
   }
   
+  
   .link-table{
-    color: #0056b3;
-    font-size: 1.2rem;
+    color: #A9DFFF;
+    font-size: .9rem;
+    letter-spacing: 1px;
   }
 
 /* ******************* NAVIGATION MENU ******************* */

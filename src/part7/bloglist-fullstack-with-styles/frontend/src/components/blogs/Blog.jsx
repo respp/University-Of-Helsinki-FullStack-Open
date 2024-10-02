@@ -66,15 +66,16 @@
 
 
 import { useDispatch, useSelector } from "react-redux";
-import { likeABlog, deleteBlog } from "../../reducers/blogReducer";
-import { useParams } from "react-router-dom";
+import { likeABlog, deleteBlog, dislikeABlog } from "../../reducers/blogReducer";
+import { Link, Navigate, useParams } from "react-router-dom";
 import Togglable from "../Togglable";
 import { CommentForm } from "./CommentForm";
 import { Button } from 'react-bootstrap';
 import './blog.css'
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { DisplayComments } from "./DisplayComments";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -82,9 +83,17 @@ const Blog = () => {
   const { id } = useParams();
   const blog = useSelector((state) =>
     state.blogs.find(blog => blog.id === id)
-)
+  )
+  // const user = useSelector(state => state.users)
+
+  // console.log(user)
 const dispatch = useDispatch()
 
+const [showComments, setShowComments] = useState(false)
+const [likeIcon, setLikeIcon] = useState(false)
+const [redirect, setRedirect] = useState(false);
+
+const commentsRef = useRef(null);
 
 useEffect(() => {
   // Seleccionar el texto con la clase "description" para la animación
@@ -105,16 +114,50 @@ useEffect(() => {
   console.log(blog)
   if (!blog) return <div>Blog not found</div>
 
-  const like = blog => dispatch(likeABlog(blog, blog.id))
+  useEffect(() => {
+    // Comprobar si el blog ya tiene un like guardado en localStorage
+    const likedBlogs = JSON.parse(localStorage.getItem('likedBlogs')) || [];
+    if (likedBlogs.includes(blog.id)) {
+        setLikeIcon(true);
+    }
+}, [blog.id]);
+
+  const like = blog => {
+    const likedBlogs = JSON.parse(localStorage.getItem('likedBlogs')) || [];
+
+    if (likeIcon){
+        dispatch(dislikeABlog(blog, blog.id))
+        setLikeIcon(false)
+        const updatedLikedBlogs = likedBlogs.filter(id => id !== blog.id);
+        localStorage.setItem('likedBlogs', JSON.stringify(updatedLikedBlogs));
+    }
+    if (!likeIcon){
+        dispatch(likeABlog(blog, blog.id))
+        setLikeIcon(true)
+        localStorage.setItem('likedBlogs', JSON.stringify([...likedBlogs, blog.id]));
+    } 
+  }
 
   const removeBlog = blog => {
     const confirm = window.confirm(`Remove ${blog.title} by ${blog.author}?`);
     if (confirm) {
       dispatch(deleteBlog(blog.id))
+      setRedirect(true)
     }
   }  
+    // Desplazarse solo si se muestran los comentarios
+    useEffect(() => {
+      if (showComments) {
+        commentsRef.current?.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, [showComments]); // Este efecto se ejecuta cada vez que cambia showComments
 
   console.log(blog.comments)
+
+  if (redirect) {
+    return <Navigate to='/' />;
+  }
+
   return (
     <div className="bg-blogs newblog">
       <div className="blog-content">
@@ -130,21 +173,45 @@ useEffect(() => {
             </p>
           </div>
 
+          {showComments && (
+            <div ref={commentsRef}>
+              <DisplayComments blog={blog} />
+
+              <Togglable
+              firstButtonLabel="Comment"
+              secondButtonLabel="Cancel"
+              >
+              <div>
+              <CommentForm id={blog.id}/>
+
+              </div>
+            </Togglable>
+            </div>
+          )}
         </div>
-
-
         <div className="col-blog2">
+
+        <Link to={`/`}>
+        <img src="/public/images/cerrar.png" className="cerrar" alt="cerrar" />
+        </Link>
+
           <div className="fijo">
-          <img src="/public/images/cerrar.png" className="cerrar" alt="cerrar" />
           
 
           <div className="content">
             <div className="likeAndComments">
-              <div className="blog-icon"><img src="/public/images/sin-like.png" className="like" alt="like" /><div className='number-icon'>{blog.likes}</div></div>
-              <div className="blog-icon  bgc-comment"><img src="/public/images/comment-icon.png" className="like" alt="comment" /><div className='number-icon'>{blog.comments.length}</div></div>
+              <div className="blog-icon" onClick={()=>like(blog)} >
+              {
+                  likeIcon
+                  ? <img src="/public/images/con-like.png" className="like-in-blog" alt="like"/>
+                  : <img src="/public/images/sin-like.png" className="like-in-blog" alt="like"/>
+              }
+              
+              <div className='number-icon'>{blog.likes}</div></div>
+              <div className="blog-icon  bgc-comment"><img src="/public/images/comment-icon.png" className="like-in-blog" alt="comment" onClick={()=>setShowComments( !showComments )} /><div className='number-icon'>{blog.comments.length}</div></div>
             </div>
-            <Button className='remove-btn' variant='outline-primary' type="button">REMOVER BLOG</Button>{''}
-            <a href={blog.url}>{blog.url}</a>
+            <Button className='remove-btn' variant='outline-primary' type="button" onClick={()=>removeBlog(blog)}>REMOVER BLOG</Button>{''}
+            <a href={blog.url} target="_blank">Ir al Sitio <img src="/public/images/enlace-externo.png" className="enlace-externo" alt="enlace-externo-icon" /></a>
 
           </div>
 

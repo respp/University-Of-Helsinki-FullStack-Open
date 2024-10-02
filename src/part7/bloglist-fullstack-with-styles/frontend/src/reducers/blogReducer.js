@@ -85,7 +85,7 @@ export const commentBlog = (id, comment) => {
 export const deleteBlog = id => {
     return async dispatch => {
         await blogService.deleteBlog(id)
-        dispatch(commentTo(id))
+        dispatch(removeABlog(id))
     }
 }
 

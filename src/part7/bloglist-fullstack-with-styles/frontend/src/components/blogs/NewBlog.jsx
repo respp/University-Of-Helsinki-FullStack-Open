@@ -46,6 +46,7 @@ export const NewBlog = () => {
                     id="title"
                     name="title"
                     required
+                    maxLength="50"
                   />
                   <br />
                   <label htmlFor="author">Autor </label>
@@ -54,6 +55,7 @@ export const NewBlog = () => {
                     id="author"
                     name="author"
                     required
+                    maxLength="50"
                   />
                   <br />
                   <label htmlFor="url">Link </label>
@@ -62,6 +64,7 @@ export const NewBlog = () => {
                     id="url"
                     name="url"
                     required
+                    maxLength="200"
                   />
               <button type="submit" className='btn escribir-btn'>SUBIR BLOG</button>
             </div>
@@ -74,6 +77,7 @@ export const NewBlog = () => {
                   id="description"
                   name="description"
                   required
+                  maxLength="6000"
                 />
                 {
                   blogAdded && <p className='p-blog-added'>{blogAdded}</p>

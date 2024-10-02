@@ -10,13 +10,13 @@ export const DisplayUsers = () => {
   const users = useSelector(state => state.users)
 
   return (
-    <div className='bg-blogs'>
-      <h1>Users</h1>
-      <Table className='custom-table'>
+    <div className='bg-blogs display-users'>
+      <h3></h3>
+      <table className='custom-table'>
           <tbody><tr>
-            <td></td>
+            <td>Users</td>
             <td>
-              <b>blogs created</b>
+              <h4>Blogs created</h4>
             </td>
           </tr>
           {users.map((user) => (
@@ -24,11 +24,11 @@ export const DisplayUsers = () => {
               <td>
                <Link to={`/users/${user.id}`} className='link-table'>{user.name}</Link>
               </td>
-              <td><h4>{user.blogs.length}</h4></td>
+              <td><h6>{user.blogs.length}</h6></td>
             </tr>
           ))}
           </tbody>
-      </Table>
+      </table>
     </div>
   )
 }

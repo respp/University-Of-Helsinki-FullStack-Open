@@ -7,6 +7,10 @@
   --third-color: #1B2337;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 @font-face {
   font-family: 'Avenir Medium';
   src: url('/fonts/Avenir-Medium.ttf') format('truetype');
@@ -84,7 +88,7 @@ a:hover {
   border-color: #79a0c3;
 }
 
-.create-btn{ /* usado en 2 componentes, CommentForm y LoginForm */
+.send-btn{ /* usado en 2 componentes, CommentForm y LoginForm */
   border: 2px solid #70CDEE;
   font-family: 'Avenir Bold';
   box-shadow: 
@@ -138,18 +142,57 @@ a:hover {
 .custom-list li {
   position: relative; /* Necesario para posicionar el pseudo-elemento */
   padding-left: 20px; /* Espacio para el asterisco */
+  width: 100%;
 }
 
 .custom-list li::before {
   content: '*'; /* Añade un asterisco antes de cada ítem */
-  position: absolute; /* Posiciona el asterisco */
   left: 0; /* Alinea a la izquierda */
-  color: #7d86cd; /* Color del asterisco */
+  color: #8a9be5; /* Color del asterisco */
 }
 
-.display-blogs{
-  margin-left: 20px;
+.display-blogs {
+  padding: 40px 60px;
+  background-color: #202A42;
+  height: 90%;
+  width: 90%;
+  border-radius: 20px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
 }
+
+.col-user1 {
+  flex-basis: 70%; /* Ocupa el 70% del ancho disponible */
+}
+
+.col-user2 {
+  flex-basis: 30%; /* Ocupa el 30% del ancho disponible */
+  display: flex;
+  justify-content: flex-end; /* Alinea el contenido a la derecha */
+}
+
+
+.display-users{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2%;
+}
+
+.no-blogs{
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.no-blogs p{
+  color: #717a8e;
+}
+
+
 
 
 
