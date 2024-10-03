@@ -118,7 +118,7 @@ export const NewBlog = () => {
                   id="description"
                   name="description"
                   required
-                  maxLength="6000"
+                  maxLength="7000"
                 />
                 {
                   blogAdded && <p className='p-blog-added'>{blogAdded}</p>
