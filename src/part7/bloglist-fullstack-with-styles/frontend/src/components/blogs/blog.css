@@ -498,12 +498,19 @@
   justify-content: center;
   align-items: center;
   margin-top: 5%;
+  padding: 5px;
+  column-gap: 50px;
 }
 
+.col-footer{
+  display: flex;
+  flex-direction: column;
+}
 
 .footer p{
   color: #9d9d9d;
   font-size: .7rem;
+  margin: 0;
 }
 
 .helsinki-icon{
@@ -524,4 +531,415 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+
+/* ************* BLOG Mobile (hasta 480px) ************* */
+@media (max-width: 480px) {
+  .specific-blog {
+    padding: 10px;
+  }
+
+  .blog-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  
+
+  .col-blog1, .col-blog2 {
+    padding: 20px;
+  }
+
+  .col-blog2{
+    align-items: center;
+    padding: 10px;
+  }
+
+  .col-blog1 h2 {
+    font-size: 1.4rem;
+  }
+
+  .remove-btn, .btn-like, .btn-remove {
+    font-size: 0.8rem;
+    width: 100%;
+  }
+
+  .cite-blog, .description {
+    font-size: 0.9rem;
+    width: 100%;
+  }
+
+  .cerrar{
+    display: none;
+  }
+
+  .content{
+    align-items: center;
+  }
+}
+
+/* ************* BLOG Tablets (481px - 768px) ************* */
+@media (min-width: 481px) and (max-width: 768px) {
+  .blog-content {
+    width: 85%;
+    grid-template-columns: 85% 25%;
+  }
+
+  .col-blog1{
+    padding: 40px 60px 60px 20px;
+
+  }
+
+  .col-blog1 h2 {
+    font-size: 1.7rem;
+  }
+
+  .col-blog2{
+    margin-right: 60%;
+  }
+
+  .cite-blog {
+    font-size: 1rem;
+    width: 90%;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    width: 90%;
+  }
+
+}
+
+/* ************* BLOG Pequeñas Laptops (769px - 1024px) ************* */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .blog-content {
+    width: 80%;
+  }
+
+  .col-blog1 h2 {
+    font-size: 1.8rem;
+  }
+
+
+  .cite-blog {
+    font-size: 1.05rem;
+    width: 85%;
+  }
+
+  .description {
+    font-size: 1rem;
+    width: 85%;
+  }
+}
+
+/* ************* BLOG Pantallas grandes (1025px en adelante) ************* */
+@media (min-width: 1025px) {
+  .blog-content {
+    width: 70%;
+  }
+
+  .col-blog1 h2 {
+    font-size: 1.9rem;
+  }
+
+  .cite-blog {
+    font-size: 1.1rem;
+    width: 75%;
+  }
+
+  .description {
+    font-size: 0.9rem;
+    width: 85%;
+  }
+}
+
+
+
+/* ************* DISPLAY BLOG Mobile (hasta 480px) ************* */
+@media (max-width: 480px) {
+  .question {
+    top: 8%;
+    left: 55%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav{
+    z-index: 4;
+  }
+
+  .question .text1 {
+    font-size: 1rem;
+  }
+  
+  .question .text2 {
+    font-size: 1.7rem;
+    margin: 0;
+  }
+
+  .escribir-btn {
+    font-size: 0.5rem;
+    width: 90%;
+  }
+
+  .blog {
+    margin: 10px;
+    padding: 5px;
+  }
+
+  .blog p {
+    font-size: 0.9rem;
+  }
+
+  .blog-body {
+    flex-direction: column;
+  }
+
+  .read-btn {
+    padding: 10px;
+    font-size: 0.5rem;
+  }
+
+  .like, .like-in-blog, .enlace-externo {
+    width: 20px;
+    height: 20px;
+  }
+
+  .number-icon {
+    font-size: 0.6rem;
+  }
+
+  .cover {
+    height: 24vh;
+
+  }
+
+  .blog-icons{
+    justify-content: flex-end;
+  }
+}
+
+/* ************* DISPLAY BLOG Tablets chicas (481px - 680px) ************* */
+
+@media (min-width: 481px) and (max-width: 576px) {
+  .question {
+    top: 8%;
+    left: 60%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .question .text1 {
+    font-size: 1.3rem;
+  }
+  
+  .question .text2 {
+    font-size: 2rem;
+    margin: 0;
+  }
+  
+  nav{
+    z-index: 4;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 680px) {
+  .question {
+    top: 12%;
+    left: 50%;
+    width: 90%;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav{
+    z-index: 4;
+  }
+
+  .question .text1 {
+    font-size: 1.5rem;
+  }
+  
+  .question .text2 {
+    font-size: 2.4rem;
+    margin: 0;
+  }
+}
+
+/* ************* DISPLAY BLOG Tablets medianas/grandes (680px - 768px) ************* */
+@media (min-width: 680px) and (max-width: 768px) {
+  .question {
+    top: 12%;
+    left: 40%;
+    width: 70%;
+  }
+
+  nav{
+    z-index: 4;
+  }
+
+  .question .text1 {
+    font-size: 1.5rem;
+  }
+
+  .question .text2 {
+    font-size: 2.8rem;
+  }
+
+  .escribir-btn {
+    font-size: 0.55rem;
+    width: 80%;
+  }
+
+  .blog-body {
+    flex-direction: row;
+  }
+
+  .blog p {
+    font-size: 1rem;
+  }
+
+  .read-btn {
+    font-size: 0.55rem;
+  }
+
+  .like, .like-in-blog, .enlace-externo {
+    width: 22px;
+    height: 22px;
+  }
+
+  .cover {
+    height: auto;
+  }
+}
+
+/* ************* DISPLAY BLOG Pequeñas Laptops (769px - 1024px) ************* */
+@media (min-width: 769px) and (max-width: 1054px) {
+  .question {
+    top: 13%;
+    left: 38%;
+    width: 60%;
+  }
+
+  nav{
+    z-index: 4;
+  }
+
+  .question .text1 {
+    font-size: 1.7rem;
+  }
+
+  .question .text2 {
+    font-size: 3.2rem;
+  }
+
+  .escribir-btn {
+    font-size: 0.6rem;
+    width: 75%;
+  }
+
+  .blog p {
+    font-size: 1.05rem;
+  }
+
+  .read-btn {
+    font-size: 0.6rem;
+  }
+
+  .like, .like-in-blog, .enlace-externo {
+    width: 23px;
+    height: 23px;
+  }
+
+  .cover {
+    height: auto;
+  }
+}
+
+
+@media (min-width: 680px) and (max-width: 961px) {
+  .question .text1 {
+    font-size: 1.4rem;
+  }
+
+  nav{
+    z-index: 4;
+  }
+
+  .question .text2 {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 680px) and (max-width: 902px) {
+  .question .text1 {
+    font-size: 1.2rem;
+  }
+
+  nav{
+    z-index: 4;
+  }
+
+  .question .text2 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (min-width: 680px) and (max-width: 838px) {
+  .question .text1 {
+    font-size: 1.2rem;
+  }
+
+  nav{
+    z-index: 4;
+  }
+
+  .question .text2 {
+    font-size: 2.6rem;
+  }
+}
+
+/* ****** NEW BLOG Responsiveness for smaller devices ****** */
+
+/* Tablets and smaller devices */
+@media (max-width: 768px) {
+  .form-new-blog {
+    width: 90%;
+    padding: 40px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* Las columnas ahora ocupan toda la pantalla */
+    gap: 10px;
+  }
+
+  .btn-create {
+    width: 100%;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+  .form-new-blog {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .form-new-blog input, .form-new-blog textarea {
+    height: 35px;
+  }
+
+  .grid {
+    gap: 5px;
+  }
+
+  .input-description {
+    height: 200px;
+  }
 }

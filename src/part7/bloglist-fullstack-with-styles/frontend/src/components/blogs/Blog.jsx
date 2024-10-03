@@ -19,7 +19,6 @@ const Blog = () => {
     state.blogs ? state.blogs.find(blog => blog.id === id) : null
   );
 
-  if (!blog) return <div>Cargando...</div> 
   
   const user = useSelector(state => state.user)
 

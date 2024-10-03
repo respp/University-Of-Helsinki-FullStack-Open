@@ -27,14 +27,14 @@ const AppRoutes = () => {
         <>
             <User />
             <DisplayUsers />
-            <Footer />
+            {/* <Footer /> */}
         </>
         } />
       <Route path="/users/new-blog" element={
         <>
             <User />
             <NewBlog />
-            <Footer />
+            {/* <Footer /> */}
         </>
         } />
       <Route path="/users/:id" element={

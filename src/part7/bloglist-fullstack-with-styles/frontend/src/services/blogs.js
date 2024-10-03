@@ -7,6 +7,19 @@ const setToken = (newToken) => {
   token = `Bearer ${newToken}`;
 };
 
+// Interceptor para manejar errores de autenticación (como token expirado)
+// axios.interceptors.response.use(
+//   response => response, 
+//   error => {
+//     if (error.response && error.response.status === 401) {
+//       // Si el token expiró, eliminamos el usuario logueado
+//       window.localStorage.removeItem("loggedBlogappUser");
+//       window.location.href = "/"; // Redirige a la página de inicio (login)
+//     }
+//     return Promise.reject(error);
+//   }
+// );
+
 const getAll = () => {
   const request = axios.get(baseUrl);
   return request.then((response) => response.data);

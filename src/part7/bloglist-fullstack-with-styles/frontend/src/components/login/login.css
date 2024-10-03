@@ -12,18 +12,15 @@ h6 {
   height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: var(--primary-color);
   overflow: hidden;
-  align-items: center;
   position: relative; /* Asegura que los elementos hijos con posición absoluta se posicionen respecto a este contenedor */
 }
 
 .flower {
   position: absolute; /* Asegura que se coloque en una posición absoluta */
-  /* bottom: 0;
-  left: 0; */
   width: 80vw; /* Ocupa todo el ancho de la pantalla */
-  /* height: auto; Ocupa toda la altura de la pantalla */
   height: 80vh; /* Ocupa toda la altura de la pantalla */
   background-image: url("/public/images/flor.webp");
   background-size: contain; /* Ajusta la imagen dentro del div sin recortarla */
@@ -32,9 +29,6 @@ h6 {
   opacity: 1;
   bottom: -20%;
   left: -13%;
-  /* bottom: -150px;
-  left: -130px; */
-  /* transform: translate(-15%, 14vh); */
 }
 
 .title-subtitle {
@@ -58,11 +52,11 @@ h6 {
 .form {
   position: absolute;
   right: 15vw;
-  background-color: var(--secondary-color);
+  background-color: #11192aeb;
+  /* background-color: var(--secondary-color); */
   border-radius: 29px;
   width: 425px;
   height: 425px;
-  /* min-height: 100%; */
   padding: 40px;
   padding-top: 50px;
   display: flex;
@@ -85,7 +79,7 @@ h6 {
   margin-bottom: 30px;
 }
 
-.password{
+.password {
   font-size: .7rem;
 }
 
@@ -94,7 +88,7 @@ h6 {
   color: #a33d36d0;
 }
 
-.p-error{
+.p-error {
   position: relative;
   top: -20px;
   margin-left: 15px;  
@@ -102,7 +96,6 @@ h6 {
   font-size: .6rem;
   letter-spacing: 1.5px;
 }
-
 
 .two-btns {
   width: 100%;
@@ -119,9 +112,157 @@ h6 {
   background-color: #17223b;
 }
 
-.sugerencia{
+.sugerencia {
   color: #506189;
   margin: 0;
   font-size: .8rem;
   margin-top: -3px;
+}
+
+/* *********** Responsiveness LOGIN SCREEN*********** */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 900px) {
+  .title-subtitle {
+    left: 10vw;
+    top: 10vw;
+    width: 40%;
+    position:static;
+    display: flex;
+  }
+
+  .form{
+    position: static;
+  }
+
+  .login-screen{
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .title-subtitle h2 {
+    font-size: 3.5rem; /* Reduce el tamaño del título */
+  }
+
+  .flower {
+    width: 70vw;
+    height: 70vh;
+    bottom: -10%;
+    left: -8%;
+  }
+
+  h6 {
+    font-size: 0.8rem; /* Ajusta el tamaño del subtítulo */
+  }
+}
+
+/* Móviles (pantallas pequeñas) */
+@media (max-width: 480px) {
+  .title-subtitle {
+    left: 5vw;
+    top: 20vw;
+    width: 80%;
+    align-items: center; /* Alinea el texto al centro en dispositivos móviles */
+    text-align: center;
+  }
+
+  .title-subtitle h2 {
+    font-size: 2.5rem; /* Reduce aún más el tamaño del título */
+  }
+
+  .flower {
+    width: 100vw;
+    height: 50vh;
+    bottom: 0;
+    left: 0;
+    opacity: 0.7; /* Puedes reducir la opacidad si lo prefieres */
+  }
+
+  h6 {
+    font-size: 0.7rem;
+  }
+
+  .form {
+    width: 70%;
+    padding: 10px;
+  }
+}
+
+/* *********** Responsividad LOGIN FORM *********** */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 768px) {
+  .form {
+    width: 65%; /* Aumentar el ancho para pantallas más pequeñas */
+    right: 10vw; /* Ajustar el margen derecho */
+    padding: 30px; /* Reducir el padding */
+    min-height: 300px; /* Ajustar la altura mínima */
+  }
+
+  .title-subtitle h6{
+    font-size: .7rem;
+  }
+
+  .title-subtitle{
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .label-form {
+    font-size: 0.9rem; /* Reducir tamaño de fuente */
+  }
+
+  .control {
+    font-size: 0.9rem; /* Ajustar el tamaño del control */
+  }
+
+  .sugerencia {
+    font-size: 0.7rem; /* Ajustar tamaño de fuente de sugerencia */
+  }
+
+  .p-error {
+    font-size: 0.7rem; /* Ajustar tamaño de fuente del error */
+  }
+}
+
+/* Móviles (pantallas pequeñas) */
+@media (max-width: 480px) {
+  .form {
+    width: 70%; /* Ajustar el ancho para móviles */
+    right: 5vw; /* Margen derecho reducido */
+    padding: 20px; /* Menos padding */
+    min-height: auto; /* Dejar que la altura se ajuste automáticamente */
+  }
+
+  .label-form {
+    font-size: 0.8rem; /* Reducir aún más el tamaño de la etiqueta */
+  }
+
+  .control {
+    height: 40px; /* Aumentar la altura del control */
+    font-size: 0.8rem; /* Ajustar tamaño del control */
+  }
+
+  .two-btns {
+    gap: 10px; /* Espacio entre botones */
+  }
+
+  .sugerencia {
+    font-size: 0.6rem; /* Ajustar tamaño de fuente de sugerencia */
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1055px) {
+  .title-subtitle h2{
+    font-size: 3rem;
+  }
+
+  .title-subtitle h6{
+    font-size: .8rem;
+  }
+
+  .title-subtitle{
+    left: 10vw;
+  }
 }

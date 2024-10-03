@@ -8,30 +8,71 @@ export const NewBlog = () => {
   const dispatch = useDispatch()
   const [blogAdded, setBlogAdded] = useState(null)
 
-  const addBlog = e =>{
-    e.preventDefault()
-    const input = e.target
+  // const addBlog = e =>{
+  //   e.preventDefault()
+  //   const input = e.target
+  //   const content = {
+  //     title : input.title.value,
+  //     author : input.author.value,
+  //     url : input.url.value,
+  //     likes : 0,
+  //     description: input.description.value
+  //   }
+  //   dispatch(newBlog(content))
+  //   dispatch(notification(`the blog "${content.title}" by ${content.author} was added`, 5))
+  //   setBlogAdded(`"${input.title.value}" fue añadido correctamente!!`)
+  //   setTimeout(() => {
+  //     setBlogAdded(null)
+  //   }, 2000);
+
+  //     // Vaciar los inputs
+  //   input.title.value = '';
+  //   input.author.value = '';
+  //   input.url.value = '';
+  //   input.description.value = '';
+
+  // }
+
+  const addBlog = async (e) => {
+    e.preventDefault();
+    const input = e.target;
     const content = {
-      title : input.title.value,
-      author : input.author.value,
-      url : input.url.value,
-      likes : 0,
-      description: input.description.value
-    }
-    dispatch(newBlog(content))
-    dispatch(notification(`the blog "${content.title}" by ${content.author} was added`, 5))
-    setBlogAdded(`"${input.title.value}" fue añadido correctamente!!`)
-    setTimeout(() => {
-      setBlogAdded(null)
-    }, 2000);
+      title: input.title.value,
+      author: input.author.value,
+      url: input.url.value,
+      likes: 0,
+      description: input.description.value,
+    };
+
+    try {
+      // Despachar la acción para crear un nuevo blog
+      await dispatch(newBlog(content));
+      dispatch(notification(`the blog "${content.title}" by ${content.author} was added`, 5));
+      
+      // Mostrar mensaje de éxito
+      setBlogAdded(`"${input.title.value}" fue añadido correctamente!!`);
+      setTimeout(() => {
+        setBlogAdded(null);
+      }, 2000);
 
       // Vaciar los inputs
-    input.title.value = '';
-    input.author.value = '';
-    input.url.value = '';
-    input.description.value = '';
+      input.title.value = '';
+      input.author.value = '';
+      input.url.value = '';
+      input.description.value = '';
+      
+    } catch (error) {
+      // Manejo de errores
+      setErrorMessage("Hubo un error al añadir el blog. Por favor, inténtalo de nuevo.");
+      console.error("Error al añadir el blog:", error);
+      
+      // Desactivar el mensaje de error después de un tiempo
+      setTimeout(() => {
+        setErrorMessage(null);
+      }, 5000);
+    }
+  };
 
-  }
 
   return (
     <div className="bg-blogs newblog">
@@ -46,7 +87,7 @@ export const NewBlog = () => {
                     id="title"
                     name="title"
                     required
-                    maxLength="50"
+                    maxLength="65"
                   />
                   <br />
                   <label htmlFor="author">Autor </label>

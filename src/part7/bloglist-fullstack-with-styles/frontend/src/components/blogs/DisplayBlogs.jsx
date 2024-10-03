@@ -6,6 +6,9 @@ import Loading from './Loading'
 import './blog.css'
 import { EveryBlog } from './EveryBlog';
 import { Footer } from './Footer';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 
 export const DisplayBlogs = () => {
@@ -18,7 +21,7 @@ export const DisplayBlogs = () => {
       const fetchBlogs = async () => {
         setLoading(true); // Inicia el estado de carga
         // Simula un retraso de 1 segundo para simular la carga de CSS
-        const delay = new Promise(resolve => setTimeout(resolve, 500));
+        const delay = new Promise(resolve => setTimeout(resolve, 1000));
 
         try {
           await delay; // Espera el retraso
@@ -30,6 +33,7 @@ export const DisplayBlogs = () => {
 
       fetchBlogs();
     }, []); // Ejecuta el efecto solo una vez al montar el componente
+    
 
     if (loading) {
       return <Loading></Loading>; // Mensaje de carga
@@ -40,7 +44,7 @@ export const DisplayBlogs = () => {
 
   return (
     <div data-testid="logged" className='bg-blogs'>
-    <img src="/public/images/cover.png" className="cover" alt="cover" />
+    <img src="/public/images/cover.webp" className="cover" alt="cover" />
     <div className="question">
       <p className='text1'>Hola {user.name},</p>
       <p className='text2'>¿QUÉ TIENES GANAS DE CONTAR HOY?</p>

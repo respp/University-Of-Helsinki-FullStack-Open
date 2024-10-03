@@ -15,8 +15,10 @@ const NavigationMenu = () => {
   return (
     <Navbar expand="lg" className="custom-navbar" data-bs-theme="dark">
       <Container className="custom-container">
-        <img src="/public/images/icon.png" className="logo" alt="Logo" />
-        <Navbar.Brand className="nav-title" href="/">BlogNest</Navbar.Brand>
+        <div>
+          <img src="/public/images/icon.png" className="logo" alt="Logo" />
+          <Navbar.Brand className="nav-title" href="/">BlogNest</Navbar.Brand>
+        </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
