@@ -1,4 +1,5 @@
-import { Form, Button } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../reducers/userReducer";
