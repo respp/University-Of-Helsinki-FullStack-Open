@@ -1,12 +1,30 @@
 import { Button, Card } from 'react-bootstrap';
 import { dislikeABlog, likeABlog } from '../../reducers/blogReducer';
 import { Link } from 'react-router-dom';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux';
+import gsap from 'gsap';
+
 
 export const EveryBlog = ({ blog }) => {
     const dispatch = useDispatch()
     const [likeIcon, setLikeIcon] = useState(false)
+    const blogRef = useRef(null); // Referencia para GSAP
+
+    // Animación con GSAP cuando el blog entra en vista
+    useEffect(() => {
+      gsap.from(blogRef.current, {
+          opacity: 0,
+          y: 50, // Aparece desde abajo
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+              trigger: blogRef.current,
+              start: "top 90%", // Se anima cuando está al 80% en la pantalla
+              toggleActions: "play none none none",
+          }
+      });
+  }, []);
 
     useEffect(() => {
         // Comprobar si el blog ya tiene un like guardado en localStorage
@@ -34,7 +52,7 @@ export const EveryBlog = ({ blog }) => {
 
 
     return (
-            <Card key={blog.id} className='blog'>
+            <Card key={blog.id} className='blog' ref={blogRef}>
               <Card.Body className='blog-body'>
                 <div className="blog-textos">
                     <blockquote className="blockquote mb-0">

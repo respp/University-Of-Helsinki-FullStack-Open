@@ -6,7 +6,7 @@ export const DisplayComments = ({ blog }) => {
             <ul>
               {
                 blog.comments.map(comment => (
-                  <li key={crypto.randomUUID()}>{comment}</li>
+                  <li key={crypto.randomUUID()}> <p>{comment}</p></li>
                 ))
               }
             </ul>

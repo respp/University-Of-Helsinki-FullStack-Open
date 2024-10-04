@@ -100,22 +100,23 @@
   }
 
   ul {
-    list-style: none; /* Ocultar el estilo por defecto del bullet */
+    list-style: none; 
+    z-index: 10;
   }
   
   ul li::before {
-    content: ''; /* Crear el pseudo-elemento */
-    display: inline-block; /* Hacer que sea visible */
-    width: 15px; /* Ajusta el tamaño deseado de la imagen */
-    height: 16px;
+    content: ''; 
+    display: inline-block; 
+    vertical-align: middle;
     background-image: url('../../../public/images/pencil-icon.png');
-    background-size: cover; /* Asegura que la imagen ocupe todo el espacio */
+    width: 20px; 
+    height: 20px;
+    background-size: contain; 
     background-repeat: no-repeat;
-    margin-right: 10px; /* Espacio entre la imagen y el texto */
+    margin-right: 10px; 
   }
   
   li{
-    display: flex;
     align-items: center;
     column-gap: 10px;
   }
