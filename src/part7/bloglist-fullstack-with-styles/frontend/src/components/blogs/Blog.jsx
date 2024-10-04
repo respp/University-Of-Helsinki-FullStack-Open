@@ -188,7 +188,7 @@ useEffect(() => {
         <div className="col-blog2">
 
         <Link to={`/`}>
-        <img src="/public/images/cerrar.png" className="cerrar" alt="cerrar" />
+        <img src="/images/cerrar.png" className="cerrar" alt="cerrar" />
         </Link>
 
           <div className="fijo">
@@ -199,15 +199,15 @@ useEffect(() => {
               <div className="blog-icon" onClick={()=>like(blog)} >
               {
                   likeIcon
-                  ? <img src="/public/images/con-like.png" className="like-in-blog" alt="like"/>
-                  : <img src="/public/images/sin-like.png" className="like-in-blog" alt="like"/>
+                  ? <img src="/images/con-like.png" className="like-in-blog" alt="like"/>
+                  : <img src="/images/sin-like.png" className="like-in-blog" alt="like"/>
               }
               
               <div className='number-icon'>{blog.likes}</div></div>
-              <div className="blog-icon  bgc-comment"><img src="/public/images/comment-icon.png" className="like-in-blog" alt="comment" onClick={()=>setShowComments( !showComments )} /><div className='number-icon'>{blog.comments.length}</div></div>
+              <div className="blog-icon  bgc-comment"><img src="/images/comment-icon.png" className="like-in-blog" alt="comment" onClick={()=>setShowComments( !showComments )} /><div className='number-icon'>{blog.comments.length}</div></div>
             </div>
             <Button className='remove-btn' variant='outline-primary' type="button" onClick={()=>removeBlog(blog)}>REMOVER BLOG</Button>{''}
-            <a href={blog.url} target="_blank">Ir al Sitio <img src="/public/images/enlace-externo.png" className="enlace-externo" alt="enlace-externo-icon" /></a>
+            <a href={blog.url} target="_blank">Ir al Sitio <img src="/images/enlace-externo.png" className="enlace-externo" alt="enlace-externo-icon" /></a>
 
           </div>
 

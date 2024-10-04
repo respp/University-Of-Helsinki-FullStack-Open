@@ -16,7 +16,7 @@ const NavigationMenu = () => {
     <Navbar expand="lg" className="custom-navbar" data-bs-theme="dark">
       <Container className="custom-container">
         <div>
-          <img src="/public/images/icon.png" className="logo" alt="Logo" />
+          <img src="/images/icon.png" className="logo" alt="Logo" />
           <Navbar.Brand className="nav-title" href="/">BlogNest</Navbar.Brand>
         </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -29,7 +29,7 @@ const NavigationMenu = () => {
             <Nav.Link as='p' className="sesion">
               <button className="btn-logged" onClick={handleLogout}>
                 cerrar sesión
-                <img src="/public/images/logout.png" className="logout" alt="logout" />
+                <img src="/images/logout.png" className="logout" alt="logout" />
               </button>
             </Nav.Link>
             </div>

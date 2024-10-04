@@ -44,7 +44,7 @@ export const DisplayBlogs = () => {
 
   return (
     <div data-testid="logged" className='bg-blogs'>
-    <img src="/public/images/cover.webp" className="cover" alt="cover" />
+    <img src="/images/cover.webp" className="cover" alt="cover" />
     <div className="question">
       <p className='text1'>Hola {user.name},</p>
       <p className='text2'>¿QUÉ TIENES GANAS DE CONTAR HOY?</p>

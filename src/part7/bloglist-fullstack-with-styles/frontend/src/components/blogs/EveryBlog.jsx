@@ -75,14 +75,14 @@ export const EveryBlog = ({ blog }) => {
                   
                  {
                   likeIcon
-                  ? <img src="/public/images/con-like.png" className="like" alt="cover" />
-                  : <img src="/public/images/sin-like.png" className="like" alt="cover" />
+                  ? <img src="/images/con-like.png" className="like" alt="cover" />
+                  : <img src="/images/sin-like.png" className="like" alt="cover" />
                  }
                  <div className='number-icon'>{blog.likes}</div>
                  </div>
 
                  <div className="iconAndImage">
-                 <img src="/public/images/comment-icon.png" className="like" alt="cover" /> <div className='number-icon'>{blog.comments.length}</div>
+                 <img src="/images/comment-icon.png" className="like" alt="cover" /> <div className='number-icon'>{blog.comments.length}</div>
                  </div>
 
                 </div>

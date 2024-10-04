@@ -19,7 +19,7 @@ export const UserBlogs = () => {
         </div>
         <div className="col-user2">
           <Link to={`/users`}>
-            <img src="/public/images/cerrar.png" className="cerrar" alt="cerrar" />
+            <img src="/images/cerrar.png" className="cerrar" alt="cerrar" />
           </Link>
         </div>
         
@@ -42,7 +42,7 @@ export const UserBlogs = () => {
         </div>
         <div className="col-user2">
           <Link to={`/users`}>
-            <img src="/public/images/cerrar.png" className="cerrar" alt="cerrar" />
+            <img src="/images/cerrar.png" className="cerrar" alt="cerrar" />
           </Link>
         </div>
         

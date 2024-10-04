@@ -15,10 +15,10 @@ export const Footer = () => {
             <p>renzoespinosa.b@gmail.com</p>
         </div>
             <a href="https://fullstackopen.com/" target="_blank" rel="noopener noreferrer">
-            <img src="/public/images/university-logo.png" className="helsinki-icon" alt="cover" />
+            <img src="/images/university-logo.png" className="helsinki-icon" alt="cover" />
             </a>
             <a href="https://renzobarcos.site/" target="_blank" rel="noopener noreferrer">
-            <img src="/public/images/r-clara.png" className="r-icon" alt="cover" />
+            <img src="/images/r-clara.png" className="r-icon" alt="cover" />
             </a>
     </div>
   );
